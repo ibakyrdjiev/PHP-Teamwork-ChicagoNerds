@@ -1,34 +1,31 @@
 <?php
 session_start();
-
+header('Content-Type: text/html; charset=utf-8');
+mb_internal_encoding("utf-8");
 function siteHeader($title) {
     ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $title?></title>
+    <title><?php echo $title;?></title>
 </head>
 <body>
     <header>
+<!--       Тък може да вмъкнем лого ако някой има добри дизайнерски умения -->
         <nav class="mainNav">
             <ul>
-                <li class="topMenu"><a href="news.php">News</a></li>
-                <li class="topMenu"><a href="about.php">About us</a></li>
-                <li class="topMenu"><a href="rules.php">Forum rules</a></li>
+                <li class="topMenu"><a href="index.php">Новини</a></li>
+                <li class="topMenu"><a href="about.php">Контакти</a></li>
             </ul>
         </nav>
         <div>
-            <span>Are you new?</span>
-            <a href="register/register.php">Register</a>
+            <span>Нов си тук?</span>
+            <a href="register/register.php">Регистрация</a>
         </div>
-        <form action="login/login.php" method="post">
-            <div>
-                <input type="text" name="userName" placeholder="Username" id="user"/>
-                <input type="password" name="userPass" placeholder="Password" id="userPass"/>
-                <input type="submit" value="Login"/>
-            </div>
-        </form>
+        <div>
+            <a href="login/login.php">Влез</a>
+        </div>
 
     </header>
 <?php
@@ -38,34 +35,34 @@ function siteFooter() {
     ?>
     <footer>
         <div class="statistic">
-            <h3>Who is online?</h3>
+            <h3>Кой е онлайн? </h3>
             <p class="onlineNow">
-                Total online: <?php /*Some php logic for online users*/ ?>
+                Общо онлайн: <?php /*Some php logic for online users*/ ?>
             </p>
             <p>
-                <span id="legend">Legend: </span>
+                <span id="legend">Легенда: </span>
                 <span class="administrators">Administrators, </span>
                 <span class="moderators">Moderators, </span>
                 <span class="normalUsers">Normal users</span>
-                //Each group could be with different color
+<!--                //Each group could be with different color-->
             </p>
-            <h3>Statistic</h3>
+            <h3>Статистика</h3>
             <p class="totalPosts">
                 <p>
-                    Total posts : <?php /*PHP logic for total posts*/?>
+                    Общо теми : <?php /*PHP logic for total posts*/?>
                 </p>
                 <p>
-                    Total opinions : <?php /*PHP logic for total opinions*/?>
+                    Общо мнения : <?php /*PHP logic for total opinions*/?>
                 </p>
                 <p>
-                    Total members : <?php /*PHP logic for total members*/?>
+                    Общо членове : <?php /*PHP logic for total members*/?>
                 </p>
                 <p>
-                    Newest member - <?php /*PHP logic for newest member*/?>
+                    Най-нов - <?php /*PHP logic for newest member*/?>
                 </p>
             </p>
         </div>
-        <p id="copytights">
+        <p id="copyrights">
             Powered by Chicago Nerds
         </p>
     </footer>
@@ -79,10 +76,10 @@ function mainContent() {
     ?>
     <div id="container">
         <section class="forumRules">
-            <h2 class="articleMainHeader">Forum Rules</h2>
+            <h2 class="articleMainHeader">Правила на форума</h2>
         </section>
         <section>
-            <h2 class="articleMainHeader">Topics</h2>
+            <h2 class="articleMainHeader">Теми</h2>
         </section>
 <!--        Additionally we can add more topics-->
 

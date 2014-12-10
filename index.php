@@ -1,7 +1,7 @@
 <?php
 include 'functions.php';
 
-siteHeader("Main Page");
+siteHeader("Начало");
 echo "<br/>";
 echo "------------------------------------------------------"; //
 echo "<br/>";
