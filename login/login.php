@@ -9,6 +9,16 @@ siteHeader("Влез");
             <input type="submit" value="Login"/>
         </div>
     </form>
-
+	
 <?php
+if(isset($_POST['userName'])){
+	$userName = $_POST['userName'];
+	$connect = mysqli_connect('localhost', 'sportsmenteam', '123456', 'sportsmen', 'sportsmen');
+	mysqli_set_charset($connect, 'utf8');
+	$q = mysqli_query($connect, "SELECT * FROM sportsmen WHERE username=$userName");
+	include 'userdata.php'
+
+}
 siteFooter();
+
+?>
