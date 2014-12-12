@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 header('Content-Type: text/html; charset=utf-8');
 mb_internal_encoding("utf-8");
 function siteHeader($title) {
@@ -8,6 +8,7 @@ function siteHeader($title) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css"/>
     <title><?php echo $title;?></title>
 </head>
 <body>
@@ -15,16 +16,22 @@ function siteHeader($title) {
 <!--       Тък може да вмъкнем лого ако някой има добри дизайнерски умения -->
         <nav class="mainNav">
             <ul>
-                <li class="topMenu"><a href="index.php">Новини</a></li>
+                <li class="topMenu"><a class="item" href="index.php">Начало</a></li>
+                <li class="topMenu"><a class="item" href="new_topic.php">Нова тема</a></li>
+
+                <li><a class="topMenu" href="create_cat.php">Нова категория</a></li>
+
                 <li class="topMenu"><a href="about.php">Контакти</a></li>
             </ul>
         </nav>
-        <div>
-            <span>Нов си тук?</span>
-            <a href="register/register.php">Регистрация</a>
-        </div>
-        <div>
-            <a href="login/login.php">Влез</a>
+        <div id="userbar">
+            <?php
+            if ($_SESSION['signed_in']) {
+                echo "Здравей   " . $_SESSION['user_name'] . "! <a href=\"signout.php\">Изход</a>";
+            } else {
+                echo '<a href="signin.php">Вход</a> or <a href="signUp.php">Регистрация</a>.';
+            }
+            ?>
         </div>
 
     </header>
