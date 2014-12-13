@@ -34,8 +34,6 @@ else
     }
     else
     {
-
-
         //do a query for the topics
 
         $allPosts = mysql_query('SELECT COUNT(*) as cnt FROM topics WHERE topic_cat='.$cat);

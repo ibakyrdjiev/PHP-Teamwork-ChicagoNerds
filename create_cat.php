@@ -39,4 +39,4 @@ if ($_SESSION['signed_in'] == false | $_SESSION['user_level'] != 1) {
 }
 
 siteFooter();
-?>
+

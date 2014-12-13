@@ -40,7 +40,7 @@ else
             echo '<h3><a href="category.php?id='. $row['cat_id']. '">' . $row['cat_name'] . '</a></h3>' . $row['cat_description'] ;
             echo '</td>';
             echo '<td class="rightpart">';
-            echo '<strong>Публикувана на'.$row['cat_date'].'</strong>';
+            echo '<strong>Публикувана на '.$row['cat_date'].'</strong>';
             echo '</td>';
             echo '</tr>';
         }
@@ -48,4 +48,4 @@ else
 }
 
 //siteFooter();
-?>
+
