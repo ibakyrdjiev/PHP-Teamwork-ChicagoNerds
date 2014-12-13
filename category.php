@@ -23,8 +23,8 @@ $result = mysql_query($sql);
 
 if(!$result)
 {
-   echo 'Категориите не могат да бъдат показани, моля опитайте по-късно.' ;
-  // echo  mysql_error();
+    echo 'Категориите не могат да бъдат показани, моля опитайте по-късно.' ;
+    // echo  mysql_error();
 }
 else
 {
@@ -37,6 +37,21 @@ else
 
 
         //do a query for the topics
+
+        $allPosts = mysql_query('SELECT COUNT(*) as cnt FROM topics WHERE topic_cat='.$cat);
+        $posts = mysql_fetch_assoc($allPosts);
+        $max_count = $posts['cnt'];
+        $limit = 5;
+        $page = 0;
+        if (isset($_GET['page'])) {
+            if ((int)$_GET['page'] > 0) {
+                $page = (int)$_GET['page']-1;
+            }else {
+                $page = 0;
+            }
+        }
+        $max_page = ceil($max_count / $limit);
+
         $sql = "SELECT
 					topic_id,
 					topic_subject,
@@ -45,7 +60,9 @@ else
 				FROM
 					topics
 				WHERE
-					topic_cat = " . mysql_real_escape_string($_GET['id']);
+					topic_cat = " . mysql_real_escape_string($_GET['id']) . "
+                ORDER BY topic_date DESC
+                LIMIT ".($limit*$page).", $limit";
 
         $result = mysql_query($sql);
 
@@ -79,10 +96,29 @@ else
                     echo '</td>';
                     echo '</tr>';
                 }
+                echo '</table>';
+                echo '<div class="pagination">';
+                if ($page >= 1) {
+                    echo '<a href="category.php?id='.$cat.'&page='.($page  - 2).'">Previous </a>' . " | ";
+                }
+                for ($i = 0; $i < $max_page; $i++) {
+                    if ($i == $page) {
+                        echo '<a href="category.php?id='.$cat.'&page='.($i +1).'" class="currentPage">'.($i +1).'</a>' . ' | ';
+                        //текущата страница може да е с друг цвят за да се вижда къде сме в момента
+                        // кода бачка само трябва да се приложи стил на class- currentPage
+                    }else {
+                        echo '<a href="category.php?id='.$cat.'&page='.($i +1).'">'.($i +1).'</a>' . ' | ';
+                    }
+                }
+                if ($page < $max_page-1) {
+                    echo '<a href="category.php?id='.$cat.'&page='.($page +2).'">Next page</a>';
+                }
+
+                echo '</div>';
             }
         }
     }
+
 }
 
 //siteFooter();
-?>
