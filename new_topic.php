@@ -1,8 +1,8 @@
 <?php
 //create_cat.php
 include 'connect.php';
-include 'header.php';
-
+include 'functions.php';
+siteHeader("sad");
 echo '<h2>Съсздавене на тема</h2>';
 if($_SESSION['signed_in'] == false)
 {
@@ -156,5 +156,5 @@ else
     }
 }
 
-include 'footer.php';
+siteFooter();
 ?>

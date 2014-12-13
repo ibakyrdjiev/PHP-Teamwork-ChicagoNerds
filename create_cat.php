@@ -2,8 +2,8 @@
 //create_cat.php
 //session_start();
 include 'connect.php';
-include 'header.php';
-
+include 'functions.php';
+siteHeader("асд");
 echo '<h2>Създаване на категория</h2>';
 if ($_SESSION['signed_in'] == false | $_SESSION['user_level'] != 1) {
     //the user is not an admin
@@ -38,5 +38,5 @@ if ($_SESSION['signed_in'] == false | $_SESSION['user_level'] != 1) {
     }
 }
 
-include 'footer.php';
+siteFooter();
 ?>

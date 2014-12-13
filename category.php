@@ -1,8 +1,9 @@
 <?php
 //category.php
 include 'connect.php';
-include 'header.php';
-//
+include 'functions.php';
+siteHeader("adssad");
+//ne bachkat
 //first select the category based on $_GET['cat_id']
 $sql = "SELECT
 			cat_id,
@@ -19,7 +20,8 @@ $result = mysql_query($sql);
 
 if(!$result)
 {
-   // echo 'The category could not be displayed, please try again later.' . mysql_error();
+   // echo 'Категориите не могат да бъдат показани, моля опитайте по-късно.' ;
+   echo  mysql_error();
 }
 else
 {
@@ -50,7 +52,7 @@ else
 
         if(!$result)
         {
-            echo 'The topics could not be displayed, please try again later.';
+            echo 'ERR.';
         }
         else
         {
@@ -83,5 +85,5 @@ else
     }
 }
 
-include 'footer.php';
+siteFooter();
 ?>

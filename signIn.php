@@ -1,8 +1,8 @@
 <?php
 //signin.php
 include 'connect.php';
-include 'header.php';
-
+include 'functions.php';
+siteHeader("asd");
 echo '<h3>Вход</h3>';
 
 //if is signed
@@ -78,5 +78,5 @@ if (isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true) {
     }
 }
 
-include 'footer.php';
+siteFooter()
 ?>

@@ -1,8 +1,8 @@
 <?php
 //signup.php
 include 'connect.php';
-include 'header.php';
-
+include 'functions.php';
+siteHeader("sad");
 echo '<h3>Регистрирай се Страннико!!!</h3><br />';
 
 if($_SERVER['REQUEST_METHOD'] != 'POST')
@@ -100,5 +100,5 @@ else
     }
 }
 
-include 'footer.php';
+siteFooter();
 ?>

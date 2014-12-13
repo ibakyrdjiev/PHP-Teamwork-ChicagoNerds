@@ -1,8 +1,8 @@
 <?php
 //signout.php
 include 'connect.php';
-include 'header.php';
-
+include 'functions.php';
+siteHeader("signIN");
 echo '<h2>Изход</h2>';
 
 //check if user if signed in
@@ -21,5 +21,5 @@ else
     echo '<a href="signin.php">Вход</a>?';
 }
 
-include 'footer.php';
+siteFooter();
 ?>
