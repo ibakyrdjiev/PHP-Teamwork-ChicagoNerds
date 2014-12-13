@@ -26,7 +26,7 @@ function siteHeader($title) {
         </nav>
         <div id="userbar">
             <?php
-            if ($_SESSION['signed_in']) {
+            if (isset($_SESSION['signed_in'])) {
                 echo "Здравей   " . $_SESSION['user_name'] . "! <a href=\"signout.php\">Изход</a>";
             } else {
                 echo '<a href="signin.php">Вход</a> or <a href="signUp.php">Регистрация</a>.';
@@ -37,7 +37,30 @@ function siteHeader($title) {
     </header>
 <?php
 }
+function showCategories() {
+    echo "<table border=1>";
+    echo "<thead><tr><th>Име на категория</th><th>Описание</th><th>Добавено на</th></tr></thead>";
+    $query = "SELECT * FROM categories WHERE 1";
+    $rs = mysql_query($query);
+    while($row = mysql_fetch_assoc($rs)) {
+        echo "<tr><td>".$row['cat_name']."</td><td>".$row['cat_description']."</td><td>".$row['date_added']."</td></tr>";
+    }
+    echo "</table>";
+}
+function editCategories() { //available for admins Only
+    echo "<table border=1>";
+    echo "<thead><tr><th>Име на категория</th><th>Описание</th><th>Добавено на</th><th>Редактирай</th></tr></thead>";
+    $query = "SELECT * FROM categories WHERE 1";
+    $rs = mysql_query($query);
+    while($row = mysql_fetch_assoc($rs)) {
+        echo "<tr><td>".$row['cat_name']."</td>".
+             "<td>".$row['cat_description']."</td><td>".$row['date_added']."</td>" .
+             "<td><a href=\"create_cat.php?mode=edit&id=".$row['cat_id']."\">Редактирай</a></td>";
 
+        echo "</tr>";
+    }
+    echo "</table>";
+}
 function siteFooter() {
     ?>
     <footer>
