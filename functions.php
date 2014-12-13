@@ -10,10 +10,11 @@ function siteHeader($title) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css"/>
     <title><?php echo $title;?></title>
+    <link rel="stylesheet" href="functions.css"/>
 </head>
 <body>
     <header>
-<!--       Тък може да вмъкнем лого ако някой има добри дизайнерски умения -->
+        <img src="TeamLogo.png" alt="teamLogo"/>
         <nav class="mainNav">
             <ul>
                 <li class="topMenu"><a class="item" href="index.php">Начало</a></li>
