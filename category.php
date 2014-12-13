@@ -30,14 +30,14 @@ else
 {
     if(mysql_num_rows($result) == 0)
     {
-        echo 'This category does not exist.';
+        echo 'Категорията не съществува.';
     }
     else
     {
         //display category data
         while($row = mysql_fetch_assoc($result))
         {
-            echo '<h2>Topics in &prime;' . $row['cat_name'] . '&prime; category</h2><br />';
+            echo '<h2>Менения в &prime;' . $row['cat_name'] . '&prime; категорията</h2><br />';
         }
 
         //do a query for the topics
@@ -61,7 +61,7 @@ else
         {
             if(mysql_num_rows($result) == 0)
             {
-                echo 'There are no topics in this category yet.';
+                echo 'Няма мнения.';
             }
             else
             {

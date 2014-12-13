@@ -5,7 +5,8 @@ siteHeader("Начало");
 $sql = "SELECT
     categories.cat_id,
 			categories.cat_name,
-			categories.cat_description
+			categories.cat_description,
+			categories.cat_date
         FROM
             categories";
 
@@ -28,17 +29,18 @@ else
         echo '<table border="1">
               <tr>
                 <th>Категория</th>
-                <th>Последна тема</th>
+                <th>публикувана на </th>
               </tr>';
         var_dump($result);
         while($row = mysql_fetch_assoc($result))
         {
+           // echo($row['cat_date']);
             echo '<tr>';
             echo '<td class="leftpart">';
             echo '<h3><a href="category.php?id='. $row['cat_id']. '">' . $row['cat_name'] . '</a></h3>' . $row['cat_description'];
             echo '</td>';
             echo '<td class="rightpart">';
-            echo '<a href="topic.php?id=">Публикувана</a> на 10-10';
+            echo '<a href="topic.php?id=">Публикувана  </a>'.$row['cat_date'];
             echo '</td>';
             echo '</tr>';
         }
