@@ -28,6 +28,21 @@ if (!$result) {
 
             //fetch the posts from the database
             //LEFT JOIN - users + posts => takes the user id and matches post id :)
+            $comment_id = mysql_real_escape_string($_GET['id']);
+            $allComments = mysql_query('SELECT COUNT(*) as cnt FROM posts WHERE posts.post_topic='. $comment_id);
+            $comments = mysql_fetch_assoc($allComments);
+            $max_count = $comments['cnt'];
+            $limit = 5;
+            $page = 0;
+            if (isset($_GET['page'])) {
+                if ((int)$_GET['page'] > 0) {
+                    $page = (int)$_GET['page']-1;
+                }else {
+                    $page = 0;
+                }
+            }
+            $max_page = ceil($max_count / $limit);
+
             $posts_sql = "SELECT
 						posts.post_topic,
 						posts.post_content,
@@ -42,7 +57,9 @@ if (!$result) {
 					ON
 						posts.post_by = users.user_id
 					WHERE
-						posts.post_topic = " . mysql_real_escape_string($_GET['id']);
+						posts.post_topic = " . mysql_real_escape_string($_GET['id']). "
+                    ORDER BY post_date ASC
+                    LIMIT ".($limit*$page).", $limit";
 
             $posts_result = mysql_query($posts_sql);
 
@@ -71,6 +88,27 @@ if (!$result) {
 
             //finish the table
             echo '</table>';
+
+            if ($_SESSION['signed_in'] === true) {
+                echo '<div id="paging-comments">';
+                if ($page >= 1) {
+                    echo '<a href="topic.php?id='.$comment_id.'&page='.($page  - 2).'">Previous </a>' . " | ";
+                }
+                for ($i = 0; $i < $max_page; $i++) {
+                    if ($i == $page) {
+                        echo '<a href="topic.php?id='.$comment_id.'&page='.($i +1).'" class="currentPage">'.($i +1).'</a>' . ' | ';
+                        //текущата страница може да е с друг цвят за да се вижда къде сме в момента
+                        // кода бачка само трябва да се приложи стил на class- currentPage
+                    }else {
+                        echo '<a href="topic.php?id='.$comment_id.'&page='.($i +1).'">'.($i +1).'</a>' . ' | ';
+                    }
+                }
+                if ($page < $max_page-1) {
+                    echo '<a href="topic.php?id='.$comment_id.'&page='.($page +2).'">Next page</a>';
+                }
+
+                echo '</div>';
+            }
         }
     }
 }
