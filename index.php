@@ -11,7 +11,7 @@ $sql = "SELECT
             categories";
 
 $result = mysql_query($sql);
-var_dump($result);
+//var_dump($result);
 if(!$result)
 {
     echo 'Категориите не могат да бъдат показани в момента, моля опитайте по-късно.';
@@ -31,22 +31,21 @@ else
                 <th>Категория</th>
                 <th>публикувана на </th>
               </tr>';
-        var_dump($result);
+       // var_dump($result);
         while($row = mysql_fetch_assoc($result))
         {
            // echo($row['cat_date']);
             echo '<tr>';
             echo '<td class="leftpart">';
-            echo '<h3><a href="category.php?id='. $row['cat_id']. '">' . $row['cat_name'] . '</a></h3>' . $row['cat_description'];
+            echo '<h3><a href="category.php?id='. $row['cat_id']. '">' . $row['cat_name'] . '</a></h3>' . $row['cat_description']." <strong>Публикувана на".$row['cat_date']."</strong>";
             echo '</td>';
             echo '<td class="rightpart">';
-            echo '<a href="topic.php?id=">Публикувана  </a>'.$row['cat_date'];
+            echo '<a href="topic.php?id=">Posledno menenie  </a>';
             echo '</td>';
             echo '</tr>';
         }
     }
 }
 
-
+//siteFooter();
 ?>
-siteFooter();
