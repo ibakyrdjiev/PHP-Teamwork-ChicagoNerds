@@ -14,32 +14,44 @@ if ($_SESSION['signed_in'] == false | $_SESSION['user_level'] != 1) {
     //the user is admin
     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
         //if there is no new cat
-        if ($_GET['mode'] === "edit" && $_GET['id'] > 0) {
-            $id = (int)$_GET['id'];
-            $rs = mysql_query('SELECT * FROM categories WHERE cat_id='.$id);
-            $editInfo = mysql_fetch_assoc($rs);
+        if (isset($_GET['mode'])) {
+            if ($_GET['mode'] === "edit" && $_GET['id'] > 0) {
+                $id = (int)$_GET['id'];
+                $rs = mysql_query('SELECT * FROM categories WHERE cat_id='.$id);
+                $editInfo = mysql_fetch_assoc($rs);
+                echo '<form method="post" action="">';
+                echo   'Име: <input type="text" name="cat_name" value="'.$editInfo['cat_name'].'"/><br />';
+                echo   'Описание:<br /> <textarea name="cat_description" />'.$editInfo['cat_description'].'</textarea><br /><br />';
+                echo   '<input type="submit" value="Add category" />';
+                if ($_GET['mode'] == "edit") {
+                    echo '<input type="hidden" name="edit-cat" value="'. $_GET['id'].'">';
+                }
+                echo '</form>';
+            }
+        }else {
+            echo '<form method="post" action="">';
+            echo   'Име: <input type="text" name="cat_name" /><br />';
+            echo   'Описание:<br /> <textarea name="cat_description" /></textarea><br /><br />';
+            echo   '<input type="submit" value="Add category" />';
+
+            echo '</form>';
         }
-        echo '<form method="post" action="">';
-        echo   'Име: <input type="text" name="cat_name" value="'.$editInfo['cat_name'].'"/><br />';
-        echo   'Описание:<br /> <textarea name="cat_description" />'.$editInfo['cat_description'].'</textarea><br /><br />';
-        echo   '<input type="submit" value="Add category" />';
-        if ($_GET['mode'] == "edit") {
-            echo '<input type="hidden" name="edit-cat" value="'. $_GET['id'].'">';
-        }
-        echo '</form>';
+
+
     } else {
         $name = htmlentities(trim($_POST['cat_name']));
         $description = htmlentities(trim($_POST['cat_description']));
         //the form has been posted, so save it in the category table
-        $id = (int)$_GET['id'];
-        if ($_POST['edit-cat'] > 0) {       //Ще редактираме
+
+        if (isset($_POST['edit-cat']) && $_POST['edit-cat'] > 0) {       //Ще редактираме
+            $id = (int)$_GET['id'];
             mysql_query('UPDATE categories SET cat_name="'.$name.'", cat_description="'.$description.'" WHERE cat_id='.$id);
 
         }else {
             $sql = "INSERT INTO categories(cat_name, cat_description)
 		   VALUES('" . mysqli_real_escape_string($con, $name) . "',
 				 '" . mysqli_real_escape_string($con, $description) . "')";
-
+            $result = mysql_query($sql);
             if (!$result) {
                 $error = mysql_error();
                 if (preg_match_all("/Duplicate entry '.*' for key 'cat_name'/", $error)) {
