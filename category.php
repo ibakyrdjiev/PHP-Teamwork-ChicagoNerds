@@ -2,7 +2,7 @@
 //category.php
 include 'connect.php';
 include 'functions.php';
-siteHeader("adssad");
+siteHeader("Мнения");
 //ne bachkat
 //first select the category based on $_GET['cat_id']
 $cat =  mysql_real_escape_string($_GET['id']);
@@ -16,15 +16,15 @@ $sql = "SELECT
 			cat_id = '".$cat."'";
 
 $result = mysql_query($sql);
-var_dump($result);
+//var_dump($result);
 //echo $sql;
 //echo $_GET['id'];
 //$result = mysql_query($sql);
 
 if(!$result)
 {
-   // echo 'Категориите не могат да бъдат показани, моля опитайте по-късно.' ;
-   echo  mysql_error();
+   echo 'Категориите не могат да бъдат показани, моля опитайте по-късно.' ;
+  // echo  mysql_error();
 }
 else
 {
@@ -34,11 +34,7 @@ else
     }
     else
     {
-        //display category data
-        while($row = mysql_fetch_assoc($result))
-        {
-            echo '<h2>Менения в &prime;' . $row['cat_name'] . '&prime; категорията</h2><br />';
-        }
+
 
         //do a query for the topics
         $sql = "SELECT
@@ -55,7 +51,7 @@ else
 
         if(!$result)
         {
-            echo 'ERR.';
+            echo 'Грешка, моля опитайте по-късно.';
         }
         else
         {
@@ -88,5 +84,5 @@ else
     }
 }
 
-siteFooter();
+//siteFooter();
 ?>

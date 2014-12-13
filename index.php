@@ -37,10 +37,10 @@ else
            // echo($row['cat_date']);
             echo '<tr>';
             echo '<td class="leftpart">';
-            echo '<h3><a href="category.php?id='. $row['cat_id']. '">' . $row['cat_name'] . '</a></h3>' . $row['cat_description']." <strong>Публикувана на".$row['cat_date']."</strong>";
+            echo '<h3><a href="category.php?id='. $row['cat_id']. '">' . $row['cat_name'] . '</a></h3>' . $row['cat_description'] ;
             echo '</td>';
             echo '<td class="rightpart">';
-            echo '<a href="topic.php?id=">Posledno menenie  </a>';
+            echo '<strong>Публикувана на'.$row['cat_date'].'</strong>';
             echo '</td>';
             echo '</tr>';
         }
