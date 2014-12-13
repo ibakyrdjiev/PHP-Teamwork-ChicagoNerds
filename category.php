@@ -1,89 +1,50 @@
 <?php
-//category.php
-include 'connect.php';
 include 'functions.php';
-siteHeader("adssad");
-//ne bachkat
-//first select the category based on $_GET['cat_id']
+include 'connect.php';
+siteHeader("Начало");
 $sql = "SELECT
-			cat_id,
-			cat_name,
-			cat_description,
-		FROM
-			categories
-		WHERE
-			cat_id = ". mysql_real_escape_string(20);
-//echo  mysql_real_escape_string(18);
-//echo $sql;
-//echo $_GET['id'];
-$result = mysql_query($sql);
+    categories.cat_id,
+			categories.cat_name,
+			categories.cat_description
+        FROM
+            categories";
 
+$result = mysql_query($sql);
+var_dump($result);
 if(!$result)
 {
-   // echo 'Категориите не могат да бъдат показани, моля опитайте по-късно.' ;
-   echo  mysql_error();
+    echo 'Категориите не могат да бъдат показани в момента, моля опитайте по-късно.';
 }
 else
 {
     if(mysql_num_rows($result) == 0)
     {
-        echo 'This category does not exist.';
+        echo 'Все още няма категории.';
     }
     else
     {
-        //display category data
+        // echo $_GET['cat_id'];
+        //prepare the table
+        echo '<table border="1">
+              <tr>
+                <th>Категория</th>
+                <th>Последна тема</th>
+              </tr>';
+        var_dump($result);
         while($row = mysql_fetch_assoc($result))
         {
-            echo '<h2>Topics in &prime;' . $row['cat_name'] . '&prime; category</h2><br />';
-        }
-
-        //do a query for the topics
-        $sql = "SELECT
-					topic_id,
-					topic_subject,
-					topic_date,
-					topic_cat
-				FROM
-					topics
-				WHERE
-					topic_cat = " . mysql_real_escape_string($_GET['id']);
-
-        $result = mysql_query($sql);
-
-        if(!$result)
-        {
-            echo 'ERR.';
-        }
-        else
-        {
-            if(mysql_num_rows($result) == 0)
-            {
-                echo 'There are no topics in this category yet.';
-            }
-            else
-            {
-                //prepare the table
-                echo '<table border="1">
-					  <tr>
-						<th>Topic</th>
-						<th>Created at</th>
-					  </tr>';
-
-                while($row = mysql_fetch_assoc($result))
-                {
-                    echo '<tr>';
-                    echo '<td class="leftpart">';
-                    echo '<h3><a href="topic.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a><br /><h3>';
-                    echo '</td>';
-                    echo '<td class="rightpart">';
-                    echo date('d-m-Y', strtotime($row['topic_date']));
-                    echo '</td>';
-                    echo '</tr>';
-                }
-            }
+            echo '<tr>';
+            echo '<td class="leftpart">';
+            echo "<h3><a href='category.php?id=$row[cat_id]'>" . $row["cat_name"] . "</a></h3>" . $row["cat_description"];
+            echo '</td>';
+            echo '<td class="rightpart">';
+            echo '<a href="topic.php?id=">Публикувана</a> на 10-10';
+            echo '</td>';
+            echo '</tr>';
         }
     }
 }
 
-siteFooter();
+
 ?>
+siteFooter();
