@@ -20,8 +20,8 @@ if ($_SESSION['signed_in'] == false | $_SESSION['user_level'] != 1) {
     } else {
         //the form has been posted, so save it in the category table
         $sql = "INSERT INTO categories(cat_name, cat_description, cat_date)
-		   VALUES('" . mysqli_real_escape_string($con, $_POST['cat_name']) . "',
-				 '" . mysqli_real_escape_string($con, $_POST['cat_description']) . "', NOW()  )";
+		   VALUES('" . htmlentities(strip_tags(mysqli_real_escape_string($con, $_POST['cat_name']) )). "',
+				 '" . htmlentities(strip_tags(mysqli_real_escape_string($con, $_POST['cat_description']))) . "', NOW()  )";
         $result = mysql_query($sql);
         if (!$result) {
             $error = mysql_error();

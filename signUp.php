@@ -69,9 +69,9 @@ else
 
         $query = "INSERT INTO
 					users(user_name, user_pass, user_email ,user_date, user_level)
-				VALUES('" . mysqli_real_escape_string($con, $_POST['user_name']) . "',
+				VALUES('" . htmlentities(strip_tags(mysqli_real_escape_string($con, $_POST['user_name']))) . "',
 					   '" . sha1($_POST['user_pass']) . "',
-					   '" . mysqli_real_escape_string($con, $_POST['user_email']) . "',
+					   '" . htmlentities(strip_tags(mysqli_real_escape_string($con, $_POST['user_email']))) . "',
 						NOW(),
 						0)";
 //zero is boolean !

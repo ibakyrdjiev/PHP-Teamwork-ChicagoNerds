@@ -45,7 +45,7 @@ if (isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true) {
                     FROM
                         users
                     WHERE
-                        user_name = '" . mysqli_real_escape_string($con, $_POST['user_name']) . "'
+                        user_name = '" . htmlentities(strip_tags(mysqli_real_escape_string($con, $_POST['user_name']))) . "'
                     AND
                         user_pass = '" . sha1($_POST['user_pass']) . "'";
 

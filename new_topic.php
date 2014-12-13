@@ -94,9 +94,9 @@ else
                                topic_date,
                                topic_cat,
                                topic_by)
-                   VALUES('" . mysqli_real_escape_string($con , $_POST['topic_subject']) . "',
+                   VALUES('" . htmlentities(strip_tags(mysqli_real_escape_string($con , $_POST['topic_subject']))) . "',
                                NOW(),
-                               " . mysqli_real_escape_string($con, $_POST['topic_cat']) . ",
+                               " . htmlentities(strip_tags(mysqli_real_escape_string($con, $_POST['topic_cat']))) . ",
                                " . $_SESSION['user_id'] . "
                                )";
 
@@ -125,7 +125,7 @@ else
                                   post_topic,
                                   post_by)
                         VALUES
-                            ('" . mysql_real_escape_string($_POST['post_content']) . "',
+                            ('" . htmlentities(strip_tags(mysql_real_escape_string($_POST['post_content']))) . "',
                                   NOW(),
                                   " . $topicId . ",
                                   " . $_SESSION['user_id'] . "
