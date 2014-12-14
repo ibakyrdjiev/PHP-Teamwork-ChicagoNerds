@@ -80,30 +80,63 @@ function siteFooter()
 
             <p class="totalPosts">
 
-            <p>
+
                 <?php
                 include "connect.php";
                 $query = "SELECT
-               *
+                user_id
                 FROM
                 users";
 
-                echo $query;
+                // echo $query;
                 $result = mysqli_query($con, $query);
-                var_dump($result);
+                // var_dump($result);
                 $usersCount = 0;
                 while ($row = mysqli_fetch_assoc($result)) {
                     $usersCount++;
                 }
                 //echo $usersCount;
-
-
                 ?>
-                Общо теми : <?php /*PHP logic for total posts*/ ?>
+
+                <?php
+                // include "connect.php";
+                $query = "SELECT
+                topic_id
+                FROM
+                topics";
+
+                //   echo $query;
+                $result = mysqli_query($con, $query);
+                //var_dump($result);
+                $topicCount = 0;
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $topicCount++;
+                }
+                //echo $usersCount;
+                ?>
+                <?php
+                // include "connect.php";
+                $query = "SELECT
+                cat_id
+                FROM
+                categories";
+
+                // echo $query;
+                $result = mysqli_query($con, $query);
+                //var_dump($result);
+                $categories = 0;
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $categories++;
+                }
+                //echo $usersCount;
+                ?>
+
+            <p>
+                Общо категории : <?php echo $categories ?>
             </p>
 
             <p>
-                Общо мнения : <?php /*PHP logic for total opinions*/ ?>
+                Общо мнения : <?php echo $topicCount ?>
             </p>
 
             <p>
