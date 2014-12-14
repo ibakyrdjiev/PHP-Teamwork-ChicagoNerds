@@ -1,8 +1,9 @@
 <?php
 //create_cat.php
-include 'connect.php';
 include 'functions.php';
-siteHeader("sad");
+siteHeader("Нова Тема");
+include 'connect.php';
+
 echo '<h2>Съсздавене на тема</h2>';
 if($_SESSION['signed_in'] == false)
 {
