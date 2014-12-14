@@ -1,0 +1,45 @@
+[14-Dec-2014 14:25:14 Europe/Sofia] PHP Warning:  include(connect.php): failed to open stream: No such file or directory in /home/atlas95e/public_html/teamforum/create_cat.php on line 4
+[14-Dec-2014 14:25:14 Europe/Sofia] PHP Warning:  include(): Failed opening 'connect.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/atlas95e/public_html/teamforum/create_cat.php on line 4
+[14-Dec-2014 14:25:14 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/atlas95e/public_html/teamforum/create_cat.php:4) in /home/atlas95e/public_html/teamforum/functions.php on line 3
+[14-Dec-2014 14:25:19 Europe/Sofia] PHP Warning:  include(connect.php): failed to open stream: No such file or directory in /home/atlas95e/public_html/teamforum/index.php on line 3
+[14-Dec-2014 14:25:19 Europe/Sofia] PHP Warning:  include(): Failed opening 'connect.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/atlas95e/public_html/teamforum/index.php on line 3
+[14-Dec-2014 14:25:19 Europe/Sofia] PHP Warning:  mysql_query(): Access denied for user 'root'@'localhost' (using password: NO) in /home/atlas95e/public_html/teamforum/index.php on line 13
+[14-Dec-2014 14:25:19 Europe/Sofia] PHP Warning:  mysql_query(): A link to the server could not be established in /home/atlas95e/public_html/teamforum/index.php on line 13
+[14-Dec-2014 14:27:22 Europe/Sofia] PHP Warning:  mysql_query(): Access denied for user 'root'@'localhost' (using password: NO) in /home/atlas95e/public_html/teamforum/index.php on line 13
+[14-Dec-2014 14:27:22 Europe/Sofia] PHP Warning:  mysql_query(): A link to the server could not be established in /home/atlas95e/public_html/teamforum/index.php on line 13
+[14-Dec-2014 14:27:34 Europe/Sofia] PHP Warning:  mysql_query(): Access denied for user 'root'@'localhost' (using password: NO) in /home/atlas95e/public_html/teamforum/signIn.php on line 52
+[14-Dec-2014 14:27:34 Europe/Sofia] PHP Warning:  mysql_query(): A link to the server could not be established in /home/atlas95e/public_html/teamforum/signIn.php on line 52
+[14-Dec-2014 14:29:54 Europe/Sofia] PHP Warning:  mysql_insert_id(): Access denied for user 'root'@'localhost' (using password: NO) in /home/atlas95e/public_html/teamforum/new_topic.php on line 118
+[14-Dec-2014 14:29:54 Europe/Sofia] PHP Warning:  mysql_insert_id(): A link to the server could not be established in /home/atlas95e/public_html/teamforum/new_topic.php on line 118
+[14-Dec-2014 14:29:54 Europe/Sofia] PHP Warning:  mysql_real_escape_string(): Access denied for user 'root'@'localhost' (using password: NO) in /home/atlas95e/public_html/teamforum/new_topic.php on line 128
+[14-Dec-2014 14:29:54 Europe/Sofia] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home/atlas95e/public_html/teamforum/new_topic.php on line 128
+[14-Dec-2014 14:31:15 Europe/Sofia] PHP Warning:  mysql_real_escape_string(): Access denied for user 'root'@'localhost' (using password: NO) in /home/atlas95e/public_html/teamforum/new_topic.php on line 128
+[14-Dec-2014 14:31:15 Europe/Sofia] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home/atlas95e/public_html/teamforum/new_topic.php on line 128
+[14-Dec-2014 14:31:42 Europe/Sofia] PHP Warning:  mysqli_real_escape_string() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/new_topic.php on line 128
+[14-Dec-2014 14:32:03 Europe/Sofia] PHP Warning:  mysqli_real_escape_string() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/new_topic.php on line 128
+[14-Dec-2014 14:32:12 Europe/Sofia] PHP Warning:  mysqli_real_escape_string() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/new_topic.php on line 128
+[14-Dec-2014 14:32:43 Europe/Sofia] PHP Warning:  mysqli_real_escape_string() expects exactly 2 parameters, 1 given in /home/atlas95e/public_html/teamforum/new_topic.php on line 128
+[14-Dec-2014 14:33:24 Europe/Sofia] PHP Warning:  mysql_real_escape_string(): Access denied for user 'root'@'localhost' (using password: NO) in /home/atlas95e/public_html/teamforum/category.php on line 63
+[14-Dec-2014 14:33:24 Europe/Sofia] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home/atlas95e/public_html/teamforum/category.php on line 63
+[14-Dec-2014 14:33:28 Europe/Sofia] PHP Warning:  mysql_real_escape_string(): Access denied for user 'root'@'localhost' (using password: NO) in /home/atlas95e/public_html/teamforum/category.php on line 63
+[14-Dec-2014 14:33:28 Europe/Sofia] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home/atlas95e/public_html/teamforum/category.php on line 63
+[14-Dec-2014 14:34:21 Europe/Sofia] PHP Warning:  mysqli_real_escape_string() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 11
+[14-Dec-2014 14:34:21 Europe/Sofia] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 13
+[14-Dec-2014 14:35:20 Europe/Sofia] PHP Warning:  mysqli_real_escape_string() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 11
+[14-Dec-2014 14:35:20 Europe/Sofia] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 13
+[14-Dec-2014 14:36:40 Europe/Sofia] PHP Warning:  mysqli_real_escape_string() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 11
+[14-Dec-2014 14:36:40 Europe/Sofia] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 13
+[14-Dec-2014 14:36:41 Europe/Sofia] PHP Warning:  mysqli_real_escape_string() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 11
+[14-Dec-2014 14:36:41 Europe/Sofia] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 13
+[14-Dec-2014 14:36:41 Europe/Sofia] PHP Warning:  mysqli_real_escape_string() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 11
+[14-Dec-2014 14:36:41 Europe/Sofia] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 13
+[14-Dec-2014 14:36:44 Europe/Sofia] PHP Warning:  mysqli_real_escape_string() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 11
+[14-Dec-2014 14:36:44 Europe/Sofia] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 13
+[14-Dec-2014 14:37:54 Europe/Sofia] PHP Warning:  mysqli_real_escape_string() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 11
+[14-Dec-2014 14:37:54 Europe/Sofia] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 13
+[14-Dec-2014 14:37:54 Europe/Sofia] PHP Warning:  mysqli_real_escape_string() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 11
+[14-Dec-2014 14:37:54 Europe/Sofia] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 13
+[14-Dec-2014 14:38:04 Europe/Sofia] PHP Warning:  mysqli_real_escape_string() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 11
+[14-Dec-2014 14:38:04 Europe/Sofia] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/atlas95e/public_html/teamforum/topic.php on line 13
+[14-Dec-2014 14:42:57 Europe/Sofia] PHP Warning:  mysql_real_escape_string(): Access denied for user 'root'@'localhost' (using password: NO) in /home/atlas95e/public_html/teamforum/reply.php on line 19
+[14-Dec-2014 14:42:57 Europe/Sofia] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home/atlas95e/public_html/teamforum/reply.php on line 19
