@@ -75,8 +75,8 @@ if (!$result) {
                 }
             }
 
-            if (!$_SESSION['signed_in']) {
-                echo '<tr><td colspan=2>Трябва да си  <a href="signin.php">Регистриран</a> за да можеш да постваш или да се <a href="signup.php">логнеш</a>  :).';
+            if (!isset($_SESSION['signed_in'])) {
+                echo '<tr><td colspan=2>Трябва да си  <a href="signIn.php">Регистриран</a> за да можеш да постваш или да се <a href="signup.php">логнеш</a>  :).';
             } else {
                 //show reply box
                 echo '<tr><td colspan="2"><h2>Отговор:</h2><br />
@@ -89,7 +89,7 @@ if (!$result) {
             //finish the table
             echo '</table>';
 
-            if ($_SESSION['signed_in'] === true) {
+            if (isset($_SESSION['signed_in'])) {
                 echo '<div id="paging-comments">';
                 if ($page >= 1) {
                     echo '<a href="topic.php?id='.$comment_id.'&page='.($page  - 2).'">Previous </a>' . " | ";
