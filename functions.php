@@ -130,6 +130,14 @@ function siteFooter()
                 }
                 //echo $usersCount;
                 ?>
+                <?php
+                $query = "SELECT user_name FROM users ORDER BY user_id DESC LIMIT 1";
+                $result = mysqli_query($con, $query);
+                $row = mysqli_fetch_assoc($result);
+                $lastUsr = $row['user_name'];
+               // var_dump($row) ;
+              //  var_dump($lastUsr);
+                ?>
 
             <p>
                 Общо категории : <?php echo $categories ?>
@@ -144,7 +152,7 @@ function siteFooter()
             </p>
 
             <p>
-                Най-нов - <?php /*PHP logic for newest member*/ ?>
+                Най-нов - <?php echo $lastUsr ?>
             </p>
             </p>
         </div>
