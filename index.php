@@ -12,18 +12,13 @@ $sql = "SELECT
 
 $result = mysqli_query($con, $sql);
 //var_dump($result);
-if(!$result)
-{
+
+if (!$result) {
     echo 'Категориите не могат да бъдат показани в момента, моля опитайте по-късно.';
-}
-else
-{
-    if(mysqli_num_rows($result) == 0)
-    {
+} else {
+    if (mysqli_num_rows($result) == 0) {
         echo 'Все още няма категории.';
-    }
-    else
-    {
+    } else {
         // echo $_GET['cat_id'];
         //prepare the table
         echo '<table border="1">
@@ -31,21 +26,19 @@ else
                 <th>Категория</th>
                 <th>публикувана на </th>
               </tr>';
-       // var_dump($result);
-        while($row = mysqli_fetch_assoc($result))
-        {
-           // echo($row['cat_date']);
+        // var_dump($result);
+        while ($row = mysqli_fetch_assoc($result)) {
+            // echo($row['cat_date']);
             echo '<tr>';
             echo '<td class="leftpart">';
-            echo '<h3><a href="category.php?id='. $row['cat_id']. '">' . $row['cat_name'] . '</a></h3>' . $row['cat_description'] ;
+            echo '<h3><a href="category.php?id=' . $row['cat_id'] . '">' . $row['cat_name'] . '</a></h3>' . $row['cat_description'];
             echo '</td>';
             echo '<td class="rightpart">';
-            echo '<strong>Публикувана на '.$row['cat_date'].'</strong>';
+            echo '<strong>Публикувана на ' . $row['cat_date'] . '</strong>';
             echo '</td>';
             echo '</tr>';
         }
     }
 }
-
-//siteFooter();
+siteFooter();
 

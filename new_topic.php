@@ -4,7 +4,7 @@ include 'connect.php';
 include 'functions.php';
 siteHeader("sad");
 echo '<h2>Съсздавене на тема</h2>';
-if(isset($_SESSION['signed_in']))
+if($_SESSION['signed_in'] == false)
 {
     //the user is not signed in
     echo 'Трябва да сте  <a href="signIn.php">регистрирани</a> за да създадете тема.';
@@ -15,7 +15,7 @@ else
     if($_SERVER['REQUEST_METHOD'] != 'POST')
     {
         //the form hasn't posted yet, display it
-       //getting the categories
+        //getting the categories
         $sql = "SELECT
                     cat_id,
                     cat_name,
@@ -81,7 +81,7 @@ else
 
         if(!$result)
         {
-           //problem with server
+            //problem with server
             echo 'Грешка, Моля опитайте по-късно.';
         }
         else
@@ -114,7 +114,7 @@ else
             else
             {
                 //the first query worked, now start the second, posts query
-              //current topic id
+                //current topic id
                 $topicId = mysqli_insert_id($con);
                 //echo $topicid;
 

@@ -85,7 +85,7 @@ if (!$result) {
 						<textarea name="reply-content"></textarea><br /><br />
 						<input type="submit" value="Изпрати" />
 					</form></td></tr>';
-              
+
                // echo"<p style='color: red'>". $row['post_content']."</p>";
             }
 
