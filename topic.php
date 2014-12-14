@@ -48,6 +48,7 @@ if (!$result) {
 						posts.post_content,
 						posts.post_date,
 						posts.post_by,
+						posts.post_id,
 						users.user_id,
 						users.user_name
 					FROM
@@ -68,10 +69,19 @@ if (!$result) {
             } else {
 
                 while ($posts_row = mysqli_fetch_assoc($posts_result)) {
-                    echo '<tr class="topic-post">
+                    echo ' 
+                    <form action = "editPost.php?id=' . $posts_row['post_id'].'&topic_id='.$_GET['id'].'" method = "post">
+                    <tr class="topic-post">
 							<td class="user-post">' . $posts_row['user_name'] . '<br/>' . date('d-m-Y H:i', strtotime($posts_row['post_date'])) . '</td>
 							<td class="post-content">' . htmlentities(stripslashes($posts_row['post_content'])) . '</td>
-						  </tr>';
+							</tr>';
+							
+							
+						  if(($_SESSION['user_level']==1)||($posts_row['post_by'] == $_SESSION['user_id'])){
+						  	echo "
+						  	<tr><td collspan = '2'><input type = 'submit' value = 'Редактирай' ></td></tr>
+							</form>";
+						  }
                 }
             }
 
