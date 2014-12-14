@@ -79,8 +79,8 @@ else
                 //prepare the table
                 echo '<table border="1">
 					  <tr>
-						<th>Topic</th>
-						<th>Created at</th>
+						<th>Мнение</th>
+						<th>Създаено на</th>
 					  </tr>';
 
                 while($row = mysql_fetch_assoc($result))
