@@ -1,9 +1,11 @@
 $(document).ready(function(){
     function disableRegister() {
-        $('#registerButton').prop('disabled', 'disabled');
+        var btn = $('#registerButton');
+       btn = btn.prop('disabled', true);
     }
     function enableRegister() {
-        $('#registerButton').removeProp('disabled', 'disabled');
+        var btn = $('#registerButton');
+        btn = btn.prop('disabled', false);
     }
     $('#confirmPassReg').on('input', function(){
         var pass = $('#userPassRed').val();
@@ -23,8 +25,10 @@ $(document).ready(function(){
         var isValidMail = emailPattern.test(email);
 
         if(!isValidMail) {
+            disableRegister();
             $('#userEmailReg').css('border', '2px solid red');
         }else {
+            enableRegister();
             $('#userEmailReg').css('border', '2px solid green');
         }
     });
