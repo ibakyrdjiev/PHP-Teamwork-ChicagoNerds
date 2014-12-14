@@ -1,6 +1,7 @@
 <?php
+//create_cat.php
 include 'connect.php';
-include 'functions.php';
+
 //qery to the server
 $sql = "SELECT
 			topic_id,
@@ -8,17 +9,17 @@ $sql = "SELECT
 		FROM
 			topics
 		WHERE
-			topics.topic_id = " . htmlentities(strip_tags(mysqli_real_escape_string($con, $_GET['id'])));
+			topics.topic_id = " . htmlentities(strip_tags(mysql_real_escape_string($_GET['id'])));
 
-$result = mysqli_query($con, $sql);
+$result = mysql_query($sql);
 
 if (!$result) {
     echo 'Грешка моля опитайте по-късно.';
 } else {
-    if (mysqli_num_rows($result) == 0) {
+    if (mysql_num_rows($result) == 0) {
         echo 'Няма мнения, може да си пръв :).';
     } else {
-        while ($row = mysqli_fetch_assoc($result)) {
+        while ($row = mysql_fetch_assoc($result)) {
             //display post data
             echo '<table class="topic" border="1">
 					<tr>
@@ -27,10 +28,9 @@ if (!$result) {
 
             //fetch the posts from the database
             //LEFT JOIN - users + posts => takes the user id and matches post id :)
-            $comment_id = mysqli_real_escape_string($con, $_GET['id']);
-            $allComments = mysqli_query($con, 'SELECT COUNT(*) as cnt FROM posts WHERE posts.post_topic='. $comment_id);
-            $comments = mysqli_fetch_assoc($allComments);
-            //mysqli_fet
+            $comment_id = mysql_real_escape_string($_GET['id']);
+            $allComments = mysql_query('SELECT COUNT(*) as cnt FROM posts WHERE posts.post_topic='. $comment_id);
+            $comments = mysql_fetch_assoc($allComments);
             $max_count = $comments['cnt'];
             $limit = 5;
             $page = 0;
@@ -57,17 +57,17 @@ if (!$result) {
 					ON
 						posts.post_by = users.user_id
 					WHERE
-						posts.post_topic = " . mysqli_real_escape_string($con, $_GET['id']). "
+						posts.post_topic = " . mysql_real_escape_string($_GET['id']). "
                     ORDER BY post_date ASC
                     LIMIT ".($limit*$page).", $limit";
 
-            $posts_result = mysqli_query($con, $posts_sql);
+            $posts_result = mysql_query($posts_sql);
 
             if (!$posts_result) {
                 echo '<tr><td>Постовете не могат да се покажат. Моля опитайте онтново' . '</tr></td></table>';
             } else {
 
-                while ($posts_row = mysqli_fetch_assoc($posts_result)) {
+                while ($posts_row = mysql_fetch_assoc($posts_result)) {
                     echo '<tr class="topic-post">
 							<td class="user-post">' . $posts_row['user_name'] . '<br/>' . date('d-m-Y H:i', strtotime($posts_row['post_date'])) . '</td>
 							<td class="post-content">' . htmlentities(stripslashes($posts_row['post_content'])) . '</td>

@@ -1,5 +1,6 @@
 <?php
-
+//create_cat.php
+//session_start();
 include 'connect.php';
 include 'functions.php';
 siteHeader("асд");
@@ -21,9 +22,9 @@ if ($_SESSION['signed_in'] == false | $_SESSION['user_level'] != 1) {
         $sql = "INSERT INTO categories(cat_name, cat_description, cat_date)
 		   VALUES('" . htmlentities(strip_tags(mysqli_real_escape_string($con, $_POST['cat_name']) )). "',
 				 '" . htmlentities(strip_tags(mysqli_real_escape_string($con, $_POST['cat_description']))) . "', NOW()  )";
-        $result = mysqli_query($con, $sql);
+        $result = mysql_query($sql);
         if (!$result) {
-         //   $error = mysql_error();
+            $error = mysql_error();
             if (preg_match_all("/Duplicate entry '.*' for key 'cat_name'/", $error)) {
                 echo 'Грешка: вече съществува такава тема.';
             }

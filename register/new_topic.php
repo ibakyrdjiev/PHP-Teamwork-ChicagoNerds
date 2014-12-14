@@ -23,7 +23,7 @@ else
                 FROM
                     categories";
 
-        $result = mysqli_query($con, $sql);
+        $result = mysql_query($sql);
 
         if(!$result)
         {
@@ -32,7 +32,7 @@ else
         }
         else
         {
-            if(mysqli_num_rows($result) == 0)
+            if(mysql_num_rows($result) == 0)
             {
                 //there are no categories, so a topic can't be posted
                 if($_SESSION['user_level'] == 1)
@@ -57,7 +57,7 @@ else
                 echo '<select name="topic_cat">';
                 //geting all the categories
 
-                while($row = mysqli_fetch_assoc($result))
+                while($row = mysql_fetch_assoc($result))
                 {
 
                     //prints the option valiue
@@ -77,7 +77,7 @@ else
         //start the transaction
 
         $query  = "BEGIN WORK;";
-        $result = mysqli_query($con, $query);
+        $result = mysql_query($query);
 
         if(!$result)
         {
@@ -100,22 +100,22 @@ else
                                " . $_SESSION['user_id'] . "
                                )";
 
-            $result = mysqli_query($con, $sql);
+            $result = mysql_query($sql);
             if(!$result)
             {
                 //something went wrong, display the error
                 echo 'Грешка, моля опитайте отново ' ;
                 //za mahane
-                //    echo mysql_error();
+                    echo mysql_error();
                 //revert the changes
                 $sql = "ROLLBACK;";
-                $result = mysqli_query($con, $sql);
+                $result = mysql_query($sql);
             }
             else
             {
                 //the first query worked, now start the second, posts query
               //current topic id
-                $topicId = mysqli_insert_id($con);
+                $topicId = mysql_insert_id();
                 //echo $topicid;
 
                 //adding info into the topic table in database who created the topic and its posts
@@ -125,14 +125,14 @@ else
                                   post_topic,
                                   post_by)
                         VALUES
-                            ('" . htmlentities(strip_tags(mysqli_real_escape_string($con , $_POST['post_content']))) . "',
+                            ('" . htmlentities(strip_tags(mysql_real_escape_string($_POST['post_content']))) . "',
                                   NOW(),
                                   " . $topicId . ",
                                   " . $_SESSION['user_id'] . "
 
                             )";
                 //sesiion id = koi e slojil temata
-                $result = mysqli_query($con, $sql);
+                $result = mysql_query($sql);
 
                 if(!$result)
                 {
@@ -140,13 +140,13 @@ else
                     echo "Грешка, моля опитайте по-късно";
                     //revert the changes
                     $sql = "ROLLBACK;";
-                    $result = mysqli_query($con, $sql);
+                    $result = mysql_query($sql);
                 }
                 else
                 {
                     //saving changes !!! YEA
                     $sql = "COMMIT;";
-                    $result = mysqli_query($con, $sql);
+                    $result = mysql_query($sql);
 
                     //5h work, the query succeeded! yes m*faka :D
                     echo 'Създадохте <a href="topic.php?id='. $topicId . '">вашата нова тема</a>.';

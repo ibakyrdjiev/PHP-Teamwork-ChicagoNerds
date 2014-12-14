@@ -10,9 +10,9 @@ session_start();
 //$password   = '2y4yM95pzuCV';
 //s$database   = 'atlas95e_test';
 
-$user="root";
-$pass="";
-$database="test";
+$user="atlas95e_user";
+$pass="2y4yM95pzuCV";
+$database="atlas95e_test";
 $con = mysqli_connect("localhost","$user","$pass");
 
 

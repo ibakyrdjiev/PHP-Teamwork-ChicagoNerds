@@ -1,7 +1,7 @@
 <?php
-//fixed
+//create_cat.php
 include 'connect.php';
-
+//include 'header.php';
 
 
 //check for sign in status
@@ -16,10 +16,10 @@ if (!$_SESSION['signed_in']) {
 						  post_by) 
 				VALUES ('" . $_POST['reply-content'] . "',
 						NOW(),
-						" . mysqli_real_escape_string($con, $_GET['id']) . ",
+						" . mysql_real_escape_string($_GET['id']) . ",
 						" . $_SESSION['user_id'] . ")";
 
-    $result = mysqli_query($con, $sql);
+    $result = mysql_query($sql);
 
     if (!$result) {
         echo 'Възникна грешка. Моля опитайте по-късно.';

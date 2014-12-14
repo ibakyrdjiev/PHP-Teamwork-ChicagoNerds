@@ -1,21 +1,20 @@
 <?php
-include 'functions.php';
-siteHeader("Вход");
-//fixed!
+//signin.php
 include 'connect.php';
-
+include 'functions.php';
+siteHeader("asd");
 echo '<h3>Вход</h3>';
 
 //if is signed
 if (isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true) {
-    echo 'Вече си логнат <a href="signout.php">Изход</a>';
+    echo 'Вече си логнат <a href="signОut.php">Изход</a>';
 } else {
     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
         //if the usr is not registered let we show him the form again
         echo '<form method="post" action="">
-            Потребителско име: <input type="text" name="user_name"/>
+            Потребителско име: <input type="text" name="user_name" />
             Парола: <input type="password" name="user_pass">
-            <input type="submit" value="Sign in" />
+            <input type="submit" value="Регистрация" />
          </form>';
     } else {
         //check the data
@@ -23,7 +22,7 @@ if (isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true) {
 
         if (!isset($_POST['user_name'])) {
             $errors[] = 'Потребителското име не може да бъде празно.';
-          //  var_dump($errors);
+            var_dump($errors);
         }
 
         if (!isset($_POST['user_pass'])) {
@@ -50,23 +49,23 @@ if (isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true) {
                     AND
                         user_pass = '" . sha1($_POST['user_pass']) . "'";
 
-            $result = mysqli_query($con, $query);
+            $result = mysql_query($query);
             if (!$result) {
                 //something went wrong, display the error
                 echo 'Нещо се прецака, моля опитайте после';
                 //posle uncomment samo za test
-               echo mysql_error();
+                echo mysql_error();
             } else {
                 //if the server returns info
                 //if the info is null
-                if (mysqli_num_rows($result) == 0) {
+                if (mysql_numrows($result) == 0) {
                     echo 'Грешно име или парола.';
                 } else {
                     //set the $_SESSION['signed_in'] variable to TRUE
                     $_SESSION['signed_in'] = true;
 
                     //session for the user data
-                    while ($row = mysqli_fetch_assoc($result)) {
+                    while ($row = mysql_fetch_assoc($result)) {
                         $_SESSION['user_id'] = $row['user_id'];
                         $_SESSION['user_name'] = $row['user_name'];
                         $_SESSION['user_level'] = $row['user_level'];

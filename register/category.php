@@ -1,13 +1,11 @@
 <?php
-
-//fixed
 //category.php
 include 'connect.php';
 include 'functions.php';
 siteHeader("Мнения");
 //ne bachkat
 //first select the category based on $_GET['cat_id']
-$cat =  mysqli_real_escape_string($con, $_GET['id']);
+$cat =  mysql_real_escape_string($_GET['id']);
 $sql = "SELECT
 			cat_id,
 			cat_name,
@@ -17,7 +15,7 @@ $sql = "SELECT
 		WHERE
 			cat_id = '".$cat."'";
 
-$result = mysqli_query($con, $sql);
+$result = mysql_query($sql);
 //var_dump($result);
 //echo $sql;
 //echo $_GET['id'];
@@ -30,7 +28,7 @@ if(!$result)
 }
 else
 {
-    if(mysqli_num_rows($result) == 0)
+    if(mysql_num_rows($result) == 0)
     {
         echo 'Категорията не съществува.';
     }
@@ -38,8 +36,8 @@ else
     {
         //do a query for the topics
 
-        $allPosts = mysqli_query($con, 'SELECT COUNT(*) as cnt FROM topics WHERE topic_cat='.$cat);
-        $posts = mysqli_fetch_assoc($allPosts);
+        $allPosts = mysql_query('SELECT COUNT(*) as cnt FROM topics WHERE topic_cat='.$cat);
+        $posts = mysql_fetch_assoc($allPosts);
         $max_count = $posts['cnt'];
         $limit = 5;
         $page = 0;
@@ -60,11 +58,11 @@ else
 				FROM
 					topics
 				WHERE
-					topic_cat = " . mysqli_real_escape_string($con, $_GET['id']) . "
+					topic_cat = " . mysql_real_escape_string($_GET['id']) . "
                 ORDER BY topic_date DESC
                 LIMIT ".($limit*$page).", $limit";
 
-        $result = mysqli_query($con, $sql);
+        $result = mysql_query($sql);
 
         if(!$result)
         {
@@ -72,7 +70,7 @@ else
         }
         else
         {
-            if(mysqli_num_rows($result) == 0)
+            if(mysql_num_rows($result) == 0)
             {
                 echo 'Няма мнения.';
             }
@@ -85,7 +83,7 @@ else
 						<th>Създаено на</th>
 					  </tr>';
 
-                while($row = mysqli_fetch_assoc($result))
+                while($row = mysql_fetch_assoc($result))
                 {
                     echo '<tr>';
                     echo '<td class="leftpart">';
