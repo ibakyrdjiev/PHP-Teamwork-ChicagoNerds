@@ -2,7 +2,7 @@
 
 include 'connect.php';
 include 'functions.php';
-siteHeader("асд");
+siteHeader("Създаване на категория");
 echo '<h2>Създаване на категория</h2>';
 if ($_SESSION['signed_in'] == false | $_SESSION['user_level'] != 1) {
     //the user is not an admin

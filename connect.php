@@ -18,13 +18,11 @@ $con = mysqli_connect("localhost","$user","$pass");
 
 
 if (!$con) {
-    die("Database connection failed: " . mysqli_error());
+    die("Database connection failed: " . mysqli_error($con));
 }
 
 mysqli_select_db($con, $database);
 $db_select = mysqli_select_db($con, $database);
 if (!$db_select) {
-    die("Database selection failed: " . mysqli_error());
+    die("Database selection failed: " . mysqli_error($con));
 }
-
-?>
