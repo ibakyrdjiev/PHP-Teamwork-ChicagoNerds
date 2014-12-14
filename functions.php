@@ -30,7 +30,7 @@ function siteHeader($title)
         </nav>
         <div id="userbar">
             <?php
-            if (isset($_SESSION['signed_in'])) {
+            if (isset($_SESSION)) {
                 echo "Здравей   " . $_SESSION['user_name'] . "! <a href=\"signout.php\">Изход</a>";
             } else {
                 echo '<a href="signIn.php">Вход</a> или <a href="signUp.php">Регистрация</a>';

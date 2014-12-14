@@ -1,5 +1,8 @@
 <?php
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+}
+
 //usrs for the hosting 
 //2y4yM95pzuCV -pass
 //atlas95e_user - user
