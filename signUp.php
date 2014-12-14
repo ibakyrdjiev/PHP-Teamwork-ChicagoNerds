@@ -38,6 +38,11 @@ else
     {
         $errors[] = 'Полето за потребителско име не може да остане празно.';
     }
+    if(isset($_POST['user_email'])){
+        if(!preg_match_all("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/", $_POST['user_email'])){
+            $errors[] = 'Неправилен E-mail адрес';
+        }
+    }
 
 //check
     if(isset($_POST['user_pass']))
