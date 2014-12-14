@@ -1,8 +1,8 @@
 <?php
-//signin.php
-include 'connect.php';
 include 'functions.php';
-siteHeader("asd");
+siteHeader("Вход");
+include 'connect.php';
+
 echo '<h3>Вход</h3>';
 
 //if is signed
@@ -12,7 +12,7 @@ if (isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true) {
     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
         //if the usr is not registered let we show him the form again
         echo '<form method="post" action="">
-            Потребителско име: <input type="text" name="user_name" />
+            Потребителско име: <input type="text" name="user_name"/>
             Парола: <input type="password" name="user_pass">
             <input type="submit" value="Sign in" />
          </form>';

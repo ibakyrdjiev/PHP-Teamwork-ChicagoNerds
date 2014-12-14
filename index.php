@@ -1,7 +1,8 @@
 <?php
 include 'functions.php';
-include 'connect.php';
 siteHeader("Начало");
+include 'connect.php';
+
 $sql = "SELECT
     categories.cat_id,
 			categories.cat_name,

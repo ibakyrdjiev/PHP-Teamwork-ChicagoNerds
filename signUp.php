@@ -1,8 +1,8 @@
 <?php
-//signup.php
-include 'connect.php';
 include 'functions.php';
-siteHeader("sad");
+siteHeader("Регистрация");
+include 'connect.php';
+
 echo '<h3>Регистрирай се Страннико!!!</h3><br />';
 
 if($_SERVER['REQUEST_METHOD'] != 'POST')
@@ -10,11 +10,11 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
     //if the form hasn't been posted yet, display it
 
     echo '<form method="post" action="">
- 	 	Потребителско Име: <input type="text" name="user_name" /><br />
- 		Парола: <input type="password" name="user_pass"><br />
-		Моля повторете паролата: <input type="password" name="user_pass_check"><br />
-		E-mail: <input type="email" name="user_email"><br />
- 		<input type="submit" value="Регистрация" />
+ 	 	Потребителско Име: <input type="text" name="user_name" id="userNameReg"/><br />
+ 		Парола: <input type="password" name="user_pass" id="userPassRed"><br />
+		Моля повторете паролата: <input type="password" name="user_pass_check" id="confirmPassReg"><br />
+		E-mail: <input type="email" name="user_email" id="userEmailReg"><br />
+ 		<input type="submit" value="Регистрация" id="registerButton" />
  	 </form>';
 }
 else

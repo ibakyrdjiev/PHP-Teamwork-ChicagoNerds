@@ -1,5 +1,4 @@
 <?php
-
 header('Content-Type: text/html; charset=utf-8');
 mb_internal_encoding("utf-8");
 function siteHeader($title) {
@@ -11,6 +10,8 @@ function siteHeader($title) {
     <link rel="stylesheet" href="style.css"/>
     <title><?php echo $title;?></title>
     <link rel="stylesheet" href="functions.css"/>
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/validations.js" type="text/javascript"></script>
 </head>
 <body>
     <header>
