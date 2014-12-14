@@ -79,5 +79,4 @@ if (isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true) {
     }
 }
 
-siteFooter()
-?>
+siteFooter($con);

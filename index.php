@@ -1,6 +1,7 @@
 <?php
 include 'functions.php';
 include 'connect.php';
+
 siteHeader("Начало");
 $sql = "SELECT
     categories.cat_id,
@@ -40,6 +41,9 @@ if (!$result) {
         }
     }
 }
+siteFooter($con);
 
-siteFooter();
+
+
+//siteFooter();
 

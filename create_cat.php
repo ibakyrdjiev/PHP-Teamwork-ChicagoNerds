@@ -6,7 +6,7 @@ siteHeader("Създаване на категория");
 echo '<h2>Създаване на категория</h2>';
 if (!isset($_SESSION['signed_in']) || $_SESSION['user_level'] != 1) {
     //the user is not an admin
-    echo 'Не си админ.';
+    echo 'Само супер юзърите могат да създават категории.';
 } else {
     //the user is admin
     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
@@ -37,5 +37,5 @@ if (!isset($_SESSION['signed_in']) || $_SESSION['user_level'] != 1) {
     }
 }
 
-siteFooter();
+siteFooter($con);
 

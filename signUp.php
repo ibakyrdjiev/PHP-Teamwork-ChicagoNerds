@@ -106,5 +106,4 @@ else
     }
 }
 
-//siteFooter();
-?>
+siteFooter($con);

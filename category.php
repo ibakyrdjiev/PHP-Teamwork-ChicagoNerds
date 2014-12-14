@@ -121,4 +121,4 @@ else
 
 }
 
-//siteFooter();
+siteFooter($con);

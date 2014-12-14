@@ -157,5 +157,4 @@ else
     }
 }
 
-siteFooter();
-?>
+siteFooter($con);

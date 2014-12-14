@@ -7,4 +7,4 @@ siteHeader("Контакти");
 
 
 <?php
-siteFooter();
+siteFooter($con);
