@@ -81,9 +81,12 @@ if (!$result) {
                 //show reply box
                 echo '<tr><td colspan="2"><h2>Отговор:</h2><br />
 					<form method="post" action="reply.php?id=' . $row['topic_id'] . '">
+
 						<textarea name="reply-content"></textarea><br /><br />
 						<input type="submit" value="Изпрати" />
 					</form></td></tr>';
+              
+               // echo"<p style='color: red'>". $row['post_content']."</p>";
             }
 
             //finish the table

@@ -4,7 +4,7 @@ include 'connect.php';
 include 'functions.php';
 siteHeader("sad");
 echo '<h2>Съсздавене на тема</h2>';
-if($_SESSION['signed_in'] == false)
+if(isset($_SESSION['signed_in']))
 {
     //the user is not signed in
     echo 'Трябва да сте  <a href="signIn.php">регистрирани</a> за да създадете тема.';
