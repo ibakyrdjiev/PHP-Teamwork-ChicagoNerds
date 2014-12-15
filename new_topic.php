@@ -1,5 +1,6 @@
 <?php
 //create_cat.php
+error_reporting(0);
 include 'functions.php';
 siteHeader("Нова Тема");
 include 'connect.php';
