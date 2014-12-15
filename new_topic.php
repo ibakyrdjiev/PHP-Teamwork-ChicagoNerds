@@ -88,72 +88,89 @@ else
         }
         else
         {
-
-            //saving the data
-            //saving the data into the topic  - > only the topic info
-            $sql = "INSERT INTO
+            $topicSubject = trim($_POST['topic_subject']);
+            //var_dump($topicSubject);
+            $topicContent = trim($_POST['topic_cat']);
+            if (($topicSubject != '' && $topicContent != '')) {
+                if ((strlen($topicSubject) > 3 && strlen($topicSubject) < 100) && (strlen($topicContent) > 5 && strlen($topicContent) < 255)) {
+                    //saving the data
+                    //saving the data into the topic  - > only the topic info
+                    $sql = "INSERT INTO
                         topics(topic_subject,
                                topic_date,
                                topic_cat,
                                topic_by)
-                   VALUES('" . htmlentities(strip_tags(mysqli_real_escape_string($con , $_POST['topic_subject']))) . "',
+                   VALUES('" . htmlentities(strip_tags(mysqli_real_escape_string($con , $topicSubject))) . "',
                                NOW(),
-                               " . htmlentities(strip_tags(mysqli_real_escape_string($con, $_POST['topic_cat']))) . ",
+                               " . htmlentities(strip_tags(mysqli_real_escape_string($con, $topicContent))) . ",
                                " . $_SESSION['user_id'] . "
                                )";
 
-            $result = mysqli_query($con, $sql);
-            if(!$result)
-            {
-                //something went wrong, display the error
-                echo 'Грешка, моля опитайте отново ' ;
-                //za mahane
-                //    echo mysql_error();
-                //revert the changes
-                $sql = "ROLLBACK;";
-                $result = mysqli_query($con, $sql);
-            }
-            else
-            {
-                //the first query worked, now start the second, posts query
-                //current topic id
-                $topicId = mysqli_insert_id($con);
-                //echo $topicid;
+                    $result = mysqli_query($con, $sql);
+                    if(!$result)
+                    {
+                        //something went wrong, display the error
+                        echo 'Грешка, моля опитайте отново ' ;
+                        //za mahane
+                        //    echo mysql_error();
+                        //revert the changes
+                        $sql = "ROLLBACK;";
+                        $result = mysqli_query($con, $sql);
+                    }
+                    else
+                    {
+                        //the first query worked, now start the second, posts query
+                        //current topic id
+                        $topicId = mysqli_insert_id($con);
+                        //echo $topicid;
 
-                //adding info into the topic table in database who created the topic and its posts
-                $sql = "INSERT INTO
+                        //adding info into the topic table in database who created the topic and its posts
+                        $sql = "INSERT INTO
                             posts(post_content,
                                   post_date,
                                   post_topic,
                                   post_by)
                         VALUES
-                            ('" . htmlentities(strip_tags(mysqli_real_escape_string($con , $_POST['post_content']))) . "',
+                            ('" . htmlentities(strip_tags(mysqli_real_escape_string($con , $topicContent))) . "',
                                   NOW(),
                                   " . $topicId . ",
                                   " . $_SESSION['user_id'] . "
 
                             )";
-                //sesiion id = koi e slojil temata
-                $result = mysqli_query($con, $sql);
+                        //sesiion id = koi e slojil temata
+                        $result = mysqli_query($con, $sql);
 
-                if(!$result)
-                {
-                    //something went wrong, display the error
-                    echo "Грешка, моля опитайте по-късно";
-                    //revert the changes
-                    $sql = "ROLLBACK;";
-                    $result = mysqli_query($con, $sql);
-                }
-                else
-                {
-                    //saving changes !!! YEA
-                    $sql = "COMMIT;";
-                    $result = mysqli_query($con, $sql);
+                        if(!$result)
+                        {
+                            //something went wrong, display the error
+                            echo "Грешка, моля опитайте по-късно";
+                            //revert the changes
+                            $sql = "ROLLBACK;";
+                            $result = mysqli_query($con, $sql);
+                        }
+                        else
+                        {
+                            //saving changes !!! YEA
+                            $sql = "COMMIT;";
+                            $result = mysqli_query($con, $sql);
 
-                    //5h work, the query succeeded! yes m*faka :D
-                    echo 'Създадохте <a href="topic.php?id='. $topicId . '">вашата нова тема</a>.';
+                            //5h work, the query succeeded! yes m*faka :D
+                            echo 'Създадохте <a href="topic.php?id='. $topicId . '">вашата нова тема</a>.';
+                        }
+                    }
+                }else {
+                    echo "<div>";
+                    echo "<h3>Темата трябва да бъде с дължина между [3..100]</h3>";
+                    echo "<h3>Коментара трябва да бъде с дължина между [5..255]</h3>";
+                    echo "</div>";
                 }
+
+            }else if($topicContent === '' || $topicSubject == '') {
+                echo "<div>";
+                echo "<h3>Моля попълнете всички задължителни полета!</h3>";
+                echo "</div>";
             }
+
         }
     }
 }
