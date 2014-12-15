@@ -1,5 +1,5 @@
 <?php
-//include "connect.php";
+include "connect.php";
 header('Content-Type: text/html; charset=utf-8');
 mb_internal_encoding("utf-8");
 function siteHeader($title)
