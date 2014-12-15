@@ -92,7 +92,7 @@ else
             //var_dump($topicSubject);
             $topicContent = trim($_POST['topic_cat']);
             if (($topicSubject != '' && $topicContent != '')) {
-                if ((strlen($topicSubject) > 3 && strlen($topicSubject) < 100) && (strlen($topicContent) > 5 && strlen($topicContent) < 255)) {
+                if ((strlen($topicSubject) > 3 && strlen($topicSubject) < 100) || (strlen($topicContent) > 5 && strlen($topicContent) < 255)) {
                     //saving the data
                     //saving the data into the topic  - > only the topic info
                     $sql = "INSERT INTO
@@ -158,7 +158,8 @@ else
                             echo 'Създадохте <a href="topic.php?id='. $topicId . '">вашата нова тема</a>.';
                         }
                     }
-                }else {
+                }
+                else {
                     echo "<div>";
                     echo "<h3>Темата трябва да бъде с дължина между [3..100]</h3>";
                     echo "<h3>Коментара трябва да бъде с дължина между [5..255]</h3>";

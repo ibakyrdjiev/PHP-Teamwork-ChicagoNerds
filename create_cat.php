@@ -20,7 +20,7 @@ if (!isset($_SESSION['signed_in']) || $_SESSION['user_level'] != 1) {
         $categoryName = trim($_POST['cat_name']);
         $categoryDesc = trim($_POST['cat_description']);
         if (isset($categoryName, $categoryDesc) && $categoryName != '' && $categoryDesc != '') {
-            if ((strlen($$categoryName) > 4 && strlen($categoryName) < 100) && (strlen($categoryDesc) > 6 && strlen($categoryDesc) < 255)) {
+            if ((strlen($$categoryName) > 4 && strlen($categoryName) < 100) || (strlen($categoryDesc) > 6 && strlen($categoryDesc) < 255)) {
                 //the form has been posted, so save it in the category table
                 $sql = "INSERT INTO categories(cat_name, cat_description, cat_date)
 		   VALUES('" . htmlentities(strip_tags(mysqli_real_escape_string($con, $categoryName) )). "',
