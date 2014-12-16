@@ -3,6 +3,9 @@ include 'connect.php';
 include 'functions.php';
 siteHeader("Мнения");
 //qery to the server
+var_dump($_SESSION['backToCat']);
+echo '<a href="category.php?id='.$_SESSION['backToCat'].'">Назад</a>';
+var_dump($_SESSION['backToCat']);
 $sql = "SELECT
 			topic_id,
 			topic_subject,
@@ -72,7 +75,7 @@ if (!$result) {
 
                 echo '<tr><td>Постовете не могат да се покажат. Моля опитайте онтново' . '</tr></td></table>';
             } else {
-                echo '<a href="category.php?id='.$_SESSION['backToCat'].'">На Зад</a>';
+
               //  var_dump($_SESSION['backToCat']);
                                // echo '<a href="udshsudadsa"  style="font-size: 200px">asdasdadsas</a>';
                 echo '<a href="topic.php?id='.$comment_id.'&page='.($page +2).'">Next page</a>';
@@ -132,7 +135,7 @@ if (!$result) {
             }
         }
 
-        var_dump($comment_id);
+        //var_dump($comment_id);
       //  var_dump($new_count);
     }
 }
