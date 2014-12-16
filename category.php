@@ -66,7 +66,8 @@ else
 					topic_id,
 					topic_subject,
 					topic_date,
-					topic_cat
+					topic_cat,
+					topic_seen
 				FROM
 					topics
 				WHERE
@@ -93,6 +94,7 @@ else
 					  <tr>
 						<th>Мнение</th>
 						<th>Създаено на</th>
+						<th>Брой посещения</th>
 					  </tr>';
 
                 while($row = mysqli_fetch_assoc($result))
@@ -101,8 +103,11 @@ else
                     echo '<td class="leftpart">';
                     echo '<h3><a href="topic.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a><br /><h3>';
                     echo '</td>';
-                    echo '<td class="rightpart">';
+                    echo '<td class="center">';
                     echo date('d-m-Y', strtotime($row['topic_date']));
+                    echo '</td>';
+                    echo '<td class="rightpart">';
+                    echo  $row['topic_seen'];
                     echo '</td>';
                     echo '</tr>';
                 }
@@ -128,8 +133,7 @@ else
             }
         }
     }
-$_SESSION['backToCat'] = $_GET['id'];
-   // var_dump($_SESSION['backToCat'] );
+
 }
 
 siteFooter($con);
