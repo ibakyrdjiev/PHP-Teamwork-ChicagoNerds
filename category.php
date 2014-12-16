@@ -39,6 +39,16 @@ else
         //do a query for the topics
 
         $allPosts = mysqli_query($con, 'SELECT COUNT(*) as cnt FROM topics WHERE topic_cat='.$cat);
+//        $query = 'SELECT * FROM categories';
+//        $find_counts = mysqli_query($con, $query);
+//        while($row = mysqli_fetch_assoc($find_counts))
+//        {
+//            $current_count = $row['cat_seen'];
+//            $new_count = $current_count + 1;
+//            $updateCount = mysqli_query($con, "UPDATE categories SET cat_seen=$new_count WHERE=".$GLOBALS['testID']."");
+//        }
+//        //var_dump($_GET['id']);
+//        var_dump($updateCount);
         $posts = mysqli_fetch_assoc($allPosts);
         $max_count = $posts['cnt'];
         $limit = 5;

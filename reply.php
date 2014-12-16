@@ -35,3 +35,4 @@ if (!$_SESSION['signed_in']) {
 
 
 //include 'footer.php';
+

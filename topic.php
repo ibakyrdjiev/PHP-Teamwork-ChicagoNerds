@@ -4,7 +4,8 @@ include 'functions.php';
 //qery to the server
 $sql = "SELECT
 			topic_id,
-			topic_subject
+			topic_subject,
+			topic_seen
 		FROM
 			topics
 		WHERE
@@ -24,7 +25,9 @@ if (!$result) {
 					<tr>
 						<th colspan="2">' . $row['topic_subject'] . '</th>
 					</tr>';
-
+            $current_count = $row['topic_seen'];
+            $new_count = $current_count + 1;
+            $updateCount = mysqli_query($con, "UPDATE topics SET topic_seen=$new_count WHERE topics.topic_id =".mysqli_real_escape_string($con, $_GET['id'])."");
             //fetch the posts from the database
             //LEFT JOIN - users + posts => takes the user id and matches post id :)
             $comment_id = mysqli_real_escape_string($con, $_GET['id']);
@@ -123,6 +126,7 @@ if (!$result) {
                 echo '</div>';
             }
         }
+        var_dump($new_count);
     }
 }
 
