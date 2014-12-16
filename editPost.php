@@ -1,12 +1,8 @@
 <?php
 include 'connect.php';
 include 'functions.php';
-?>
+siteHeader("Отговор");
 
-<!DOCTYPE html>
-<html>
-<body>
-	<?php
 $id = intval($_GET['id']);
 
 $posts_result = current(mysqli_fetch_row(mysqli_query($con, "SELECT post_content FROM posts WHERE post_id = $id ")));
@@ -23,9 +19,6 @@ if(isset($_POST["postContent"])){
 </textarea>
 <input type = "submit" value = "Промени"/>
 </form>
-</body>
-</html>
-<?php
 
 
 ?>

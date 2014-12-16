@@ -1,7 +1,8 @@
 <?php
 //fixed
 include 'connect.php';
-
+include 'functions.php';
+siteHeader("Отговор");
 
 
 //check for sign in status

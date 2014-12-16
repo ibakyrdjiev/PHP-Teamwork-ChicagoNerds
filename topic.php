@@ -1,6 +1,7 @@
 <?php
 include 'connect.php';
 include 'functions.php';
+siteHeader("Мнения");
 //qery to the server
 $sql = "SELECT
 			topic_id,
