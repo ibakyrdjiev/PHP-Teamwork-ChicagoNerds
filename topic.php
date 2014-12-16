@@ -69,9 +69,13 @@ if (!$result) {
             $posts_result = mysqli_query($con, $posts_sql);
 
             if (!$posts_result) {
+
                 echo '<tr><td>Постовете не могат да се покажат. Моля опитайте онтново' . '</tr></td></table>';
             } else {
-
+                echo '<a href="category.php?id='.$_SESSION['backToCat'].'">На Зад</a>';
+              //  var_dump($_SESSION['backToCat']);
+                               // echo '<a href="udshsudadsa"  style="font-size: 200px">asdasdadsas</a>';
+                echo '<a href="topic.php?id='.$comment_id.'&page='.($page +2).'">Next page</a>';
                 while ($posts_row = mysqli_fetch_assoc($posts_result)) {
                     echo ' 
                     <form action = "editPost.php?id=' . $posts_row['post_id'].'&topic_id='.$_GET['id'].'" method = "post">
@@ -127,7 +131,9 @@ if (!$result) {
                 echo '</div>';
             }
         }
-        var_dump($new_count);
+
+        var_dump($comment_id);
+      //  var_dump($new_count);
     }
 }
 

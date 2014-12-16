@@ -128,7 +128,8 @@ else
             }
         }
     }
-
+$_SESSION['backToCat'] = $_GET['id'];
+   // var_dump($_SESSION['backToCat'] );
 }
 
 siteFooter($con);
