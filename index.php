@@ -1,6 +1,6 @@
 <?php
 include 'functions.php';
-include 'connect.php';
+//include 'connect.php';
 
 siteHeader("Начало");
 $sql = "SELECT
@@ -41,7 +41,7 @@ if (!$result) {
         }
     }
 }
-siteFooter($con);
+//siteFooter($con);
 
 
 

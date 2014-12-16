@@ -50,3 +50,8 @@ header>nav>ul>li>a:hover{
 #userbar>a:hover{
     background-color: #0776A0;
 }
+
+#footer {
+    padding-top: 3%;
+    border-top: 3px solid #ffffff;
+}

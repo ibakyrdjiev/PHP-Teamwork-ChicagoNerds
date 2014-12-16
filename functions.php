@@ -74,7 +74,7 @@ function mainContent()
 function siteFooter($con)
 {
     ?>
-        <footer>
+        <footer id="footer">
             <div class="total=cats">
                 Общо категории : <?php echo totalCats($con) ?>
             </div>
@@ -85,7 +85,7 @@ function siteFooter($con)
                 Общо мнения : <?php echo totalOpinions($con) ?>
             </div>
             <div class="newest-member">
-                Най-новият потребител е : <?php echo getNewestMember($con) ?>
+<!--                Най-новият потребител е : --><?php //echo getNewestMember($con) ?>
             </div>
             <p id="copyrights">
                 Powered by Chicago Nerds
@@ -101,24 +101,24 @@ function totalMembers($databaseConnection) {
     $query = "SELECT user_id FROM users";
     $result = mysqli_query($databaseConnection, $query);
     $usersCount = 0;
-    while ($row = mysqli_fetch_assoc($result)) {
-        $usersCount++;
-    }
+//    while ($row = mysqli_fetch_assoc($result)) {
+//        $usersCount++;
+//    }
     return $usersCount;
 }
 function totalOpinions($databaseConnection) {
     $query = "SELECT topic_id FROM topics";
     $result = mysqli_query($databaseConnection, $query);
     $topicCount = 0;
-    while ($row = mysqli_fetch_assoc($result)) {
-        $topicCount++;
-    }
+//    while ($row = mysqli_fetch_assoc($result)) {
+//        $topicCount++;
+//    }
     return $topicCount;
 }
 function getNewestMember($databaseConnection) {
     $query = "SELECT user_name FROM users ORDER BY user_id DESC LIMIT 1";
     $result = mysqli_query($databaseConnection, $query);
-    $row = mysqli_fetch_assoc($result);
+//    $row = mysqli_fetch_assoc($result);
     $lastUsr = $row['user_name'];
     return $lastUsr;
 }
@@ -126,9 +126,9 @@ function totalCats($databaseConnection) {
     $query = "SELECT cat_id FROM categories";
     $result = mysqli_query($databaseConnection, $query);
     $categories = 0;
-    while ($row = mysqli_fetch_assoc($result)) {
-        $categories++;
-    }
+//    while ($row = mysqli_fetch_assoc($result)) {
+//        $categories++;
+//    }
     return $categories;
 }
 

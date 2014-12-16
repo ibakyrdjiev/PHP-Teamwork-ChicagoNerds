@@ -1,10 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css"/>
+    <title>SportsMen | Chicago Team</title>
+    <link rel="stylesheet" href="signIn.css"/>
+</head>
+<body>
+
 <?php
 //signin.php
 //fixed!
 include 'connect.php';
 include 'functions.php';
 siteHeader("asd");
-echo '<h3>Вход</h3>';
+echo '<h3 id="enter">Вход</h3>';
+
 
 //if is signed
 if (isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true) {
@@ -12,10 +23,12 @@ if (isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true) {
 } else {
     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
         //if the usr is not registered let we show him the form again
-        echo '<form method="post" action="">
-            Потребителско име: <input type="text" name="user_name" />
-            Парола: <input type="password" name="user_pass">
-            <input type="submit" value="Sign in" />
+        echo '<form id="signInform" method="post">
+            <label for="user_name" id="userL">Потребителско име: </label>
+            <input type="text" name="user_name" id="user_name" />
+            <label for="user_pass" id="passL">Парола: </label>
+            <input type="password" name="user_pass" id="user_pass">
+            <input type="submit" value="Sign in" id="submitButton"/>
          </form>';
     } else {
         //check the data
@@ -80,3 +93,8 @@ if (isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true) {
 }
 
 siteFooter($con);
+
+?>
+
+</body>
+</html>

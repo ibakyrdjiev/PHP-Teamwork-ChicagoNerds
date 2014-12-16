@@ -1,0 +1,62 @@
+#enter{
+    display: block;
+    width: 8%;
+    font-size: 2em;
+    margin: 0 auto;
+    padding: 1% 0;
+}
+
+#signInform{
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #ff8500;
+    width: 55%;
+    height: 200px;
+    margin-bottom: 5%;
+}
+
+#userL{
+    margin-left: 4.5%;
+    font-size: 1.2em;
+    color: #ffffff;
+
+
+}
+
+#passL{
+    font-size: 1.2em;
+    color: #ffffff;
+
+}
+
+#user_name{
+    margin: 4% 3%;
+    border: 3px solid #ffffff;
+    opacity: 0.5;
+}
+
+#user_pass{
+    margin: 3% 3%;
+    border: 3px solid #ffffff;
+    opacity: 0.5;
+}
+
+#user_pass:hover, #user_name:hover{
+    opacity: 1;
+}
+
+#user_pass:focus, #user_name:focus{
+    opacity: 1;
+}
+
+#submitButton{
+    margin: 5% 40%;
+    padding: 2% 6%;
+    background-color: #ff8500;
+    border: 1px solid #ffffff;
+}
+
+#submitButton:hover{
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
