@@ -48,6 +48,9 @@
 #user_pass:focus, #user_name:focus{
     opacity: 1;
 }
+a {
+	color: yellow;
+}
 
 #submitButton{
     margin: 5% 40%;

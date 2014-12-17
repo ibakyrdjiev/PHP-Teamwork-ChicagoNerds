@@ -20,5 +20,3 @@ if(isset($_POST["postContent"])){
 <input type = "submit" value = "Промени"/>
 </form>
 
-
-?>
