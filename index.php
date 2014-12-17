@@ -41,7 +41,7 @@ if (!$result) {
         }
     }
 }
-//siteFooter($con);
+siteFooter($con);
 
 
 
