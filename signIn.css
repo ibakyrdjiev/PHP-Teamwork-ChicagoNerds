@@ -15,6 +15,17 @@
     margin-bottom: 5%;
 }
 
+#signInform:hover{
+    background: repeating-linear-gradient(
+            0deg,
+            #024c68,
+            #024c68 10px,
+            #0776A0 10px,
+            #0776A0 20px
+    );
+
+}
+
 #userL{
     margin-left: 4.5%;
     font-size: 1.2em;
@@ -62,4 +73,5 @@ a {
 #submitButton:hover{
     border: 2px solid #ffffff;
     color: #ffffff;
+    cursor: pointer;
 }
