@@ -1,0 +1,71 @@
+#signUpform{
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #ff8500;
+    width: 50%;
+    margin-bottom: 5%;
+    height: 70%;
+}
+
+#signUpform:hover{
+    background: repeating-linear-gradient(
+            -45deg,
+            #0776A0,
+            #0776A0 10px,
+            #024c68 10px,
+            #024c68 20px
+    );
+}
+
+#reg{
+    display: block;
+    width: 50%;
+    font-size: 2em;
+    margin: 0 30%;
+    padding: 1% 0;
+}
+
+#stranger{
+    color: #ff8500;
+    font-size: 1.5em;
+}
+
+#userNameReg{
+    margin: 2% 9.5%;
+    border: 3px solid #ffffff;
+}
+
+#userPassReg{
+    margin: 2% 25%;
+    border: 3px solid #ffffff;
+}
+
+#confirmPassReg{
+    margin: 2% 2.5%;
+    border: 3px solid #ffffff;
+}
+
+#userEmailReg{
+    margin: 2% 26%;
+    border: 3px solid #ffffff;
+}
+
+#userL, #passL, #cPassL, #emailL {
+    margin-left: 12%;
+    font-size: 1.2em;
+    color: #ffffff;
+}
+
+#registerButton{
+    margin: 3% 37%;
+    padding: 2% 6.5%;
+    background-color: rgba(255, 133, 0, 0.61);
+    border: 1px solid #ff8500;
+    color: #ffffff;
+}
+
+#registerButton:hover{
+    background-color: #ffffff;
+    color: #ff8500;
+    cursor: pointer;
+}

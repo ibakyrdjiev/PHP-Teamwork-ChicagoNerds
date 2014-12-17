@@ -1,20 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SportsMen | Chicago Team</title>
+    <link rel="stylesheet" href="signUp.css"/>
+</head>
+<body>
+
 <?php
 //signup.php
 //fixed!
 include 'connect.php';
 include 'functions.php';
 siteHeader("Регистрация");
-echo '<h3>Регистрирай се Страннико!!!</h3><br />';
+echo '<h3 id="reg">Регистрирай се <span id="stranger">Страннико!!!</span></h3><br />';
 
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     //if the form hasn't been posted yet, display it
 
-    echo '<form method="post" action="">
- 	 	Потребителско Име: <input type="text" name="user_name" id="userNameReg"/><br />
- 		Парола: <input type="password" name="user_pass" id="userPassRed"><br />
-		Моля повторете паролата: <input type="password" name="user_pass_check" id="confirmPassReg"><br />
-		E-mail: <input type="email" name="user_email" id="userEmailReg"><br />
+    echo '<form method="post" id="signUpform">
+        <label for="userNameReg" id="userL">Потребителско Име: </label>
+ 	 	<input type="text" name="user_name" id="userNameReg"/><br />
+ 	 	<label for="userPassReg" id="passL">Парола: </label>
+ 		<input type="password" name="user_pass" id="userPassReg"><br />
+ 		<label for="confirmPassReg" id="cPassL">Моля повторете паролата: </label>
+		<input type="password" name="user_pass_check" id="confirmPassReg"><br />
+		<label for="userEmailReg" id="emailL">E-mail: </label>
+		<input type="email" name="user_email" id="userEmailReg"><br />
  		<input type="submit" value="Регистрация" id="registerButton" />
  	 </form>';
 }
@@ -107,3 +120,8 @@ else
 }
 
 siteFooter($con);
+
+?>
+
+</body>
+</html>

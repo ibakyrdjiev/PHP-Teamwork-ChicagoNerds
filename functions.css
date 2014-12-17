@@ -4,7 +4,13 @@ body{
 }
 
 header {
-    background-color: #0776A0;
+    background: repeating-linear-gradient(
+            90deg,
+            #0776A0,
+            #0776A0 10px,
+            #024c68 10px,
+            #024c68 20px
+    );
     border: 2px solid black;
 }
 

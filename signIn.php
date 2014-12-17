@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css"/>
     <title>SportsMen | Chicago Team</title>
     <link rel="stylesheet" href="signIn.css"/>
 </head>

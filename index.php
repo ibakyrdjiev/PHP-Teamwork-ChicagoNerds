@@ -2,7 +2,7 @@
 include 'functions.php';
 //include 'connect.php';
 
-siteHeader("Начало");
+siteHeader("SportsMen | Chicago Team");
 $sql = "SELECT
     categories.cat_id,
 			categories.cat_name,
