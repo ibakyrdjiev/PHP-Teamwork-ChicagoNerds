@@ -3,9 +3,9 @@ include 'connect.php';
 include 'functions.php';
 siteHeader("Мнения");
 //qery to the server
-var_dump($_SESSION['backToCat']);
+
 echo '<a href="category.php?id='.$_SESSION['backToCat'].'">Назад</a>';
-var_dump($_SESSION['backToCat']);
+
 $sql = "SELECT
 			topic_id,
 			topic_subject,
@@ -140,4 +140,4 @@ if (!$result) {
     }
 }
 
-//include 'footer.php';
+siteFooter($con);

@@ -9,7 +9,7 @@ echo '<h2>Съсздавене на тема</h2>';
 if(!isset ($_SESSION['signed_in']))
 {
     //the user is not signed in
-    echo 'Трябва да сте  <a href="signIn.php">регистрирани</a> за да създадете тема.';
+    echo 'Трябва да сте  <a href="signIn.php">влезли в системата </a> за да създадете тема.';
 }
 else
 {
