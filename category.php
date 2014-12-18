@@ -90,7 +90,7 @@ else
             else
             {
                 //prepare the table
-                echo '<table border="1">
+                echo '<table class="table" border="1">
 					  <tr>
 						<th>Мнение</th>
 						<th>Създаено на</th>
@@ -101,12 +101,12 @@ else
                 {
                     echo '<tr>';
                     echo '<td class="leftpart">';
-                    echo '<h3><a href="topic.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a><br /><h3>';
+                    echo '<h3><a href="topic.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a><h3>';
                     echo '</td>';
                     echo '<td class="center">';
                     echo date('d-m-Y', strtotime($row['topic_date']));
                     echo '</td>';
-                    echo '<td class="rightpart">';
+                    echo '<td class="seen">';
                     echo  $row['topic_seen'];
                     echo '</td>';
                     echo '</tr>';
@@ -114,19 +114,19 @@ else
                 echo '</table>';
                 echo '<div class="pagination">';
                 if ($page >= 1) {
-                    echo '<a href="category.php?id='.$cat.'&page='.($page  - 2).'">Previous </a>' . " | ";
+                    echo '<a class ="page" href="category.php?id='.$cat.'&page='.($page  - 2).'">Предишна страница </a>' . " | ";
                 }
                 for ($i = 0; $i < $max_page; $i++) {
                     if ($i == $page) {
-                        echo '<a href="category.php?id='.$cat.'&page='.($i +1).'" class="currentPage">'.($i +1).'</a>' . ' | ';
+                        echo '<a class = "page" href="category.php?id='.$cat.'&page='.($i +1).'" class="Текуща страница">'.($i +1).'</a>' . ' | ';
                         //текущата страница може да е с друг цвят за да се вижда къде сме в момента
                         // кода бачка само трябва да се приложи стил на class- currentPage
                     }else {
-                        echo '<a href="category.php?id='.$cat.'&page='.($i +1).'">'.($i +1).'</a>' . ' | ';
+                        echo '<a class = "page" href="category.php?id='.$cat.'&page='.($i +1).'">'.($i +1).'</a>' . ' | ';
                     }
                 }
                 if ($page < $max_page-1) {
-                    echo '<a href="category.php?id='.$cat.'&page='.($page +2).'">Next page</a>';
+                    echo '<a class="page" href="category.php?id='.$cat.'&page='.($page +2).'">Следваща страница</a>';
                 }
 
                 echo '</div>';

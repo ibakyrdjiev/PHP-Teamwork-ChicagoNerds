@@ -14,9 +14,9 @@ if(isset($_POST["postContent"])){
 }
 ?>
 <form method = "post" action="?id=<?=$id;?>&topic_id=<?=$_GET['topic_id'];?>">
-<textarea name = "postContent" >
+<textarea class="edTopic" name = "postContent" >
 	<?php echo $posts_result ?>
 </textarea>
-<input type = "submit" value = "Промени"/>
+<input class="editTopic" type = "submit" value = "Промени"/>
 </form>
 

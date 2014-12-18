@@ -25,7 +25,7 @@ if (!$result) {
     } else {
         while ($row = mysqli_fetch_assoc($result)) {
             //display post data
-            echo '<table class="topic" border="1">
+            echo '<table class="table" border="1">
 					<tr>
 						<th colspan="2">' . $row['topic_subject'] . '</th>
 					</tr>';
@@ -78,19 +78,19 @@ if (!$result) {
 
               //  var_dump($_SESSION['backToCat']);
                                // echo '<a href="udshsudadsa"  style="font-size: 200px">asdasdadsas</a>';
-                echo '<a href="topic.php?id='.$comment_id.'&page='.($page +2).'">Next page</a>';
+
                 while ($posts_row = mysqli_fetch_assoc($posts_result)) {
                     echo ' 
                     <form action = "editPost.php?id=' . $posts_row['post_id'].'&topic_id='.$_GET['id'].'" method = "post">
                     <tr class="topic-post">
-							<td class="user-post">' . $posts_row['user_name'] . '<br/>' . date('d-m-Y H:i', strtotime($posts_row['post_date'])) . '</td>
-							<td class="post-content">' . htmlentities(stripslashes($posts_row['post_content'])) . '</td>
+							<td class="user-post">' . $posts_row['user_name']  . date('d-m-Y H:i', strtotime($posts_row['post_date'])) . '</td>
+							<td class="post-content">' . htmlentities(strip_tags($posts_row['post_content'])) . '</td>
 							</tr>';
 							
 							
 						  if(($_SESSION['user_level']==1)||($posts_row['post_by'] == $_SESSION['user_id'])){
 						  	echo "
-						  	<tr><td collspan = '2'><input type = 'submit' value = 'Редактирай' ></td></tr>
+						  	<tr><td collspan = '2'><input class='editTop' type = 'submit' value = 'Редактирай' ></td></tr>
 							</form>";
 						  }
                 }
@@ -100,10 +100,10 @@ if (!$result) {
                 echo '<tr><td colspan=2>Трябва да си  <a href="signIn.php">Регистриран</a> за да можеш да постваш или да се <a href="signUp.php">логнеш</a>  :).';
             } else {
                 //show reply box
-                echo '<tr><td colspan="2"><h2>Отговор:</h2><br />
+                echo '<tr><td colspan="2"><h2>Отговор:</h2>
 					<form method="post" action="reply.php?id=' . $row['topic_id'] . '">
 
-						<textarea name="reply-content"></textarea><br /><br />
+						<textarea name="reply-content"></textarea>
 						<input type="submit" value="Изпрати" />
 					</form></td></tr>';
 
@@ -116,19 +116,20 @@ if (!$result) {
             if (isset($_SESSION['signed_in'])) {
                 echo '<div id="paging-comments">';
                 if ($page >= 1) {
-                    echo '<a href="topic.php?id='.$comment_id.'&page='.($page  - 2).'">Previous </a>' . " | ";
+                    echo '<a class="page" href="topic.php?id='.$comment_id.'&page='.($page  - 2).'">Previous </a>' . " | ";
                 }
                 for ($i = 0; $i < $max_page; $i++) {
                     if ($i == $page) {
-                        echo '<a href="topic.php?id='.$comment_id.'&page='.($i +1).'" class="currentPage">'.($i +1).'</a>' . ' | ';
+                        echo '<a class="page" href="topic.php?id='.$comment_id.'&page='.($i +1).'" class="currentPage">'.($i +1).'</a>' . ' | ';
                         //текущата страница може да е с друг цвят за да се вижда къде сме в момента
                         // кода бачка само трябва да се приложи стил на class- currentPage
                     }else {
-                        echo '<a href="topic.php?id='.$comment_id.'&page='.($i +1).'">'.($i +1).'</a>' . ' | ';
+                        echo '<a class="page" href="topic.php?id='.$comment_id.'&page='.($i +1).'">'.($i +1).'</a>' . ' | ';
                     }
                 }
                 if ($page < $max_page-1) {
-                    echo '<a href="topic.php?id='.$comment_id.'&page='.($page +2).'">Next page</a>';
+                    //echo '<a class= href="topic.php?id='.$comment_id.'&page='.($page +2).'">Next page</a>';
+                    echo '<a class="page" href="topic.php?id='.$comment_id.'&page='.($page +2).'">Next page</a>';
                 }
 
                 echo '</div>';

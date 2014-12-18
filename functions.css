@@ -1,4 +1,4 @@
-body{
+body {
     background-color: #024c68;
     color: #fff;
 }
@@ -14,16 +14,16 @@ header {
     border: 2px solid black;
 }
 
-header>img{
+header > img {
     margin: 2% 2%;
 }
 
-header>nav>ul>li{
+header > nav > ul > li {
     display: inline;
     margin: 0;
 }
 
-header>nav>ul>li>a{
+header > nav > ul > li > a {
     text-decoration: none;
     background-color: #024c68;
     color: #0776A0;
@@ -32,21 +32,22 @@ header>nav>ul>li>a{
     padding: 0 8%;
     margin: 0;
 }
-a{
-	color: lightgreen;
+
+a {
+    color: lightgreen;
 }
 
 /*header>nav>ul>li>a:active{*/
-    /*background-color: #0776A0;*/
-    /*color: #024c68;*/
+/*background-color: #0776A0;*/
+/*color: #024c68;*/
 /*}*/
 
-header>nav>ul>li>a:hover{
+header > nav > ul > li > a:hover {
     background-color: #0776A0;
     color: #024c68;
 }
 
-#userbar>a{
+#userbar > a , #back, #add{
     text-decoration: none;
     color: #ff8500;
     font-size: 1.2em;
@@ -56,11 +57,127 @@ header>nav>ul>li>a:hover{
     background-color: #024c68;
 }
 
-#userbar>a:hover{
+#userbar > a:hover {
     background-color: #0776A0;
 }
 
 #footer {
-    padding-top: 3%;
+    padding-top: 1%;
     border-top: 3px solid #ffffff;
+    display: block;
+    vertical-align: bottom;
+    /*top: 430px;*/
+
+}
+
+.table {
+
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 1000px;
+    text-align: center;
+    margin-bottom: 15px;
+
+}
+
+td {
+    width: 200px;
+}
+
+body > table > tbody > tr:nth-child(5) > td > form > textarea {
+    width: 800px;
+    display: block;
+    margin: 0 auto;
+    height: 100px;
+
+}
+
+body > a:nth-child(2) {
+    text-decoration: none;
+    color: #ff8500;
+    width: 50px;
+    font-size: 1.2em;
+    display: inline-block;
+    margin-top: 15px;
+
+    border: 2px solid black;
+    padding: 0.1%;
+    background-color: #024c68;
+
+}
+
+.page {
+    text-decoration: none;
+    color: #ff8500;
+    width: auto;
+    font-size: 1.2em;
+    display: inline-block;
+    margin-top: 15px;
+    text-align: center;
+    border: 2px solid black;
+    padding: 0.1%;
+    background-color: #024c68;
+    margin-bottom:2%;
+}
+
+.pagination {
+    display: block;
+    text-align: center;
+}
+
+body > table > tbody > tr:nth-child(5) > td > form > input[type="submit"],.newTopic, body > table > tbody > tr:nth-child(4) > td > input[type="submit"], .editTopic, .editTop ,body > form > input.newTopic {
+    text-decoration: none;
+    color: #ff8500;
+    padding: 3px!important;
+    width: auto;
+    font-size: 1.2em;
+    display: block;
+    margin: 0 auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-align: center;
+    border: 2px solid black;
+    padding: 0.1%;
+    background-color: #024c68;
+    text-align: center;
+}
+
+body > table > tbody > tr:nth-child(5) > td > h2, body > h2,body > div > div > div > div.col.span_1_of_3 > div.contact_info > h2
+{
+    text-align: center;
+}
+.seen{
+    width: 20px !important;
+    text-align: center;
+}
+.edTopic{
+    display: block;
+    margin: 0 auto;
+    width: 1000px;
+    height: 200px;
+    margin-top: 1%;
+}
+textarea{
+    font-size: 20px !important;
+}
+th{
+    font-size: 20px;
+}
+#userbar{
+ font-size: 20px !important;
+margin-left: 40px;
+}
+.paragraph{
+    font-size: 25px;
+    padding: 0px;
+    margin: 5px!important;
+}
+.totalCats, .total-members, .total-categories, #copyrights{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+#paging-comments{
+    margin: 0 auto;
+    text-align: center;
 }

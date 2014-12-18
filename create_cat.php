@@ -14,7 +14,7 @@ if (!isset($_SESSION['signed_in']) || $_SESSION['user_level'] != 1) {
         echo '<form method="post" action="">
 			Име: <input type="text" name="cat_name" /><br />
 			Описание:<br /> <textarea name="cat_description" /></textarea><br /><br />
-			<input type="submit" value="Add category" />
+			<input id = "add" type="submit" value="Добави Категория" />
 		 </form>';
     } else {
         $categoryName = trim($_POST['cat_name']);

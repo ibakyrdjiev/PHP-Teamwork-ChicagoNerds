@@ -1,8 +1,10 @@
 <?php
 include 'functions.php';
 //include 'connect.php';
+//echo "<div id=\"container\">";
 
 siteHeader("SportsMen | Chicago Team");
+echo "<main>";
 $sql = "SELECT
     categories.cat_id,
 			categories.cat_name,
@@ -22,7 +24,7 @@ if (!$result) {
     } else {
         // echo $_GET['cat_id'];
         //prepare the table
-        echo '<table border="1">
+        echo '<table class="table" border="1">
               <tr>
                 <th>Категория</th>
                 <th>публикувана на </th>
@@ -32,16 +34,20 @@ if (!$result) {
             // echo($row['cat_date']);
             echo '<tr>';
             echo '<td class="leftpart">';
-            echo '<p><a href="category.php?id=' . $row['cat_id'] . '">' . $row['cat_name'] . '</a></p>' . $row['cat_description'];
+            echo '<p class="paragraph"><a href="category.php?id=' . $row['cat_id'] . '">' . $row['cat_name'] . '</a></p>' . $row['cat_description'];
             echo '</td>';
             echo '<td class="rightpart">';
             echo '<strong>Публикувана на ' . $row['cat_date'] . '</strong>';
             echo '</td>';
             echo '</tr>';
         }
+        echo "</table>";
     }
+
 }
+echo "</main>";
 siteFooter($con);
+
 
 
 
