@@ -55,3 +55,7 @@ h2 {
 .newTopic:hover {
     background: #0776A0;
 }
+.error-msg {
+    font-size: 25px;
+    color: red;
+}

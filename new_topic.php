@@ -170,7 +170,7 @@ else
 
             }else if($topicContent === '' || $topicSubject == '') {
                 echo "<div>";
-                echo "<h3>Моля попълнете всички задължителни полета!</h3>";
+                echo "<h3 class=\"error-msg\">Моля попълнете всички задължителни полета!</h3>";
                 echo '<a id="back" href="new_topic.php">Назад</a>';
                 echo "</div>";
             }
