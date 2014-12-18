@@ -2,6 +2,7 @@
 include "connect.php";
 header('Content-Type: text/html; charset=utf-8');
 mb_internal_encoding("utf-8");
+error_reporting(0);
 function siteHeader($title)
 {
     ?>

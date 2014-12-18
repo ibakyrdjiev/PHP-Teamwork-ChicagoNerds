@@ -9,11 +9,11 @@
 
 #signUpform:hover{
     background: repeating-linear-gradient(
-            -45deg,
-            #0776A0,
-            #0776A0 10px,
+            0deg,
+            #024c68,
             #024c68 10px,
-            #024c68 20px
+            #0776A0 10px,
+            #0776A0 20px
     );
 }
 
@@ -68,4 +68,27 @@
     background-color: #ffffff;
     color: #ff8500;
     cursor: pointer;
+}
+
+#signUpform label {
+    margin-left: 5% ;
+}
+#signUpform input {
+    margin-left: 5% ;
+}
+#signInform > input[type="text"], #signInform > input[type="password"] {
+    /*width: 250px;*/
+    height: 30px;
+    font-size: 17px;
+}
+#userNameReg, #userPassReg, #userEmailReg, #confirmPassReg {
+    border: 2px ridge #000;
+    display: block;
+    margin: 0 auto;
+    width: 35%;
+    border-radius: 10px;
+    background: #0776A0;
+    color: #000;
+    font-size: 24px;
+    font-family: Consolas, sans-serif;
 }

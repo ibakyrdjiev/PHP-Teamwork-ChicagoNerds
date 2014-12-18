@@ -11,7 +11,7 @@
     margin: 0 auto;
     border: 2px solid #ff8500;
     width: 55%;
-    height: 200px;
+
     margin-bottom: 5%;
 }
 
@@ -37,6 +37,7 @@
 #passL{
     font-size: 1.2em;
     color: #ffffff;
+    margin-left: 5%;
 
 }
 
@@ -74,4 +75,20 @@ a {
     border: 2px solid #ffffff;
     color: #ffffff;
     cursor: pointer;
+}
+#signInform > input[type="text"], #signInform > input[type="password"] {
+    width: 250px;
+    height: 30px;
+    font-size: 17px;
+}
+#user_name, #user_pass {
+    border: 2px ridge #000;
+    display: block;
+    margin: 0 auto;
+    width: 35%;
+    border-radius: 10px;
+    background: #0776A0;
+    color: #000;
+    font-size: 24px;
+    font-family: Consolas, sans-serif;
 }
