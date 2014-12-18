@@ -12,6 +12,7 @@ function siteHeader($title)
         <link rel="stylesheet" href="style.css"/>
         <title><?php echo $title; ?></title>
         <link rel="stylesheet" href="functions.css"/>
+        <link rel="stylesheet" href="new_topic.css"/>
         <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
         <script src="js/validations.js" type="text/javascript"></script>
     </head>
@@ -74,8 +75,9 @@ function mainContent()
 function siteFooter($con)
 {
     ?>
+
         <footer id="footer">
-            <div class="total=cats">
+            <div class="totalCats">
                 Общо категории : <?php echo totalCats($con) ?>
             </div>
             <div class="total-members">

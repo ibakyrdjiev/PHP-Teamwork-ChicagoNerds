@@ -5,7 +5,8 @@ include 'functions.php';
 siteHeader("Нова Тема");
 include 'connect.php';
 
-echo '<h2>Съсздавене на тема</h2>';
+
+echo '<h2 class="create-theme">Създаване на тема</h2>';
 if(!isset ($_SESSION['signed_in']))
 {
     //the user is not signed in
@@ -52,11 +53,12 @@ else
             {
 //                $row = mysql_fetch_assoc($result);
 //                var_dump($row);
-                echo '<form method="post" action="">
-                    Относно: <input type="text" name="topic_subject" />
-                    Категория:';
+                echo '<form method="post" action="" class="new-topic">
+                    <label>Относно:</label>
+                    <input type="text" name="topic_subject" />
+                    ';
 
-                echo '<select name="topic_cat">';
+                echo '<label>Категория: </label><select name="topic_cat">';
                 //geting all the categories
 
                 while($row = mysqli_fetch_assoc($result))
@@ -68,8 +70,8 @@ else
                 }
                 echo '</select>';
 
-                echo 'Коментар: <textarea name="post_content" /></textarea>
-                    <input type="submit" value="Създай тема" />
+                echo '<label>Коментар: </label><textarea name="post_content" /></textarea>
+                    <input class= "newTopic" type="submit" value="Създай тема" />
                  </form>';
             }
         }
@@ -169,6 +171,7 @@ else
             }else if($topicContent === '' || $topicSubject == '') {
                 echo "<div>";
                 echo "<h3>Моля попълнете всички задължителни полета!</h3>";
+                echo '<a id="back" href="new_topic.php">Назад</a>';
                 echo "</div>";
             }
 
@@ -177,3 +180,4 @@ else
 }
 
 siteFooter($con);
+
