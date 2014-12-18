@@ -11,9 +11,11 @@ if (!isset($_SESSION['signed_in']) || $_SESSION['user_level'] != 1) {
     //the user is admin
     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
         //if there is no new cat
-        echo '<form method="post" action="">
-			Име: <input type="text" name="cat_name" /><br />
-			Описание:<br /> <textarea name="cat_description" /></textarea><br /><br />
+        echo '<form method="post" action="" class="create-category">
+			<label>Име: </label>
+			<input type="text" name="cat_name" /><br />
+			<label>Описание: </label>
+			<br /> <textarea name="cat_description" /></textarea><br /><br />
 			<input id = "add" type="submit" value="Добави Категория" />
 		 </form>';
     } else {

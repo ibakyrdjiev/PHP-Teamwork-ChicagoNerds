@@ -43,7 +43,15 @@ label {
     color: #ff8500;
     font-weight: bold;
 }
-.create-theme {
+h2 {
     color: #ff8500;
     font-size: 30px;
+}
+
+.newTopic {
+    width: 200px !important;
+    padding: 10px;
+}
+.newTopic:hover {
+    background: #0776A0;
 }
