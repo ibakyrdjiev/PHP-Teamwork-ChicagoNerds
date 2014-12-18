@@ -1,10 +1,12 @@
 <?php
 include "connect.php";
 header('Content-Type: text/html; charset=utf-8');
+error_reporting(0);
 mb_internal_encoding("utf-8");
 error_reporting(0);
 function siteHeader($title)
 {
+
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -90,7 +92,7 @@ function siteFooter($con)
                 Общо мнения : <?php echo totalOpinions($con) ?>
             </div>
             <div class="newest-member">
-<!--                Най-новият потребител е : --><?php //echo getNewestMember($con) ?>
+                Най-новият потребител е : <?php echo getNewestMember($con) ?>
             </div>
             <p id="copyrights">
                 Powered by Chicago Nerds
