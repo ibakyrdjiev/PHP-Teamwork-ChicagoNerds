@@ -26,6 +26,7 @@ label {
     height: 160px;
     max-height: 160px;
     padding: 10px;
+    max-width: 35%;
 
 }
 .new-topic > input {

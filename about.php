@@ -23,7 +23,7 @@ siteHeader("Контакти");
                 <div class="col span_2_of_3">
                     <div class="contact-form">
                         <h3>Свържете се с нас</h3>
-                        <form method="post" action="contact.php" encytype="text/plain, charset=UTF-8">
+                        <form method="post" action="contact.php" class="about" encytype="text/plain, charset=UTF-8">
                             <div>
                                 <span><label>Име</label></span>
                                 <span><input name="name" type="text" class="textbox" required></span>
@@ -41,7 +41,7 @@ siteHeader("Контакти");
                                 <span><textarea name="msg" required> </textarea></span>
                             </div>
                             <div>
-                                <span><input type="submit" value="Изпрати"></span>
+                                <span><input type="submit" value="Изпрати" id="send-contact"></span>
                             </div>
                         </form>
 

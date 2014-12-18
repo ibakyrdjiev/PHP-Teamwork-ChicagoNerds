@@ -14,6 +14,7 @@ function siteHeader($title)
         <link rel="stylesheet" href="functions.css"/>
         <link rel="stylesheet" href="new_topic.css"/>
         <link rel="stylesheet" href="create_cat.css"/>
+        <link rel="stylesheet" href="about.css"/>
         <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
         <script src="js/validations.js" type="text/javascript"></script>
     </head>
