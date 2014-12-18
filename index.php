@@ -27,7 +27,7 @@ if (!$result) {
         echo '<table class="table" border="1">
               <tr>
                 <th>Категория</th>
-                <th>публикувана на </th>
+                <th>Публикувана на </th>
               </tr>';
         // var_dump($result);
         while ($row = mysqli_fetch_assoc($result)) {

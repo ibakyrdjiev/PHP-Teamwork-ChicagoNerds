@@ -4,7 +4,7 @@ include 'functions.php';
 siteHeader("Мнения");
 //qery to the server
 
-echo '<a href="category.php?id='.$_SESSION['backToCat'].'">Назад</a>';
+echo '<a href="category.php?id='.$_SESSION['backToCat'].'" id="back-btnT">Назад</a>';
 
 $sql = "SELECT
 			topic_id,
@@ -103,8 +103,8 @@ if (!$result) {
                 echo '<tr><td colspan="2"><h2>Отговор:</h2>
 					<form method="post" action="reply.php?id=' . $row['topic_id'] . '">
 
-						<textarea name="reply-content"></textarea>
-						<input type="submit" value="Изпрати" />
+						<textarea name="reply-content" class="user-comment"></textarea>
+						<input type="submit" value="Изпрати" id="send-comment"/>
 					</form></td></tr>';
 
                // echo"<p style='color: red'>". $row['post_content']."</p>";

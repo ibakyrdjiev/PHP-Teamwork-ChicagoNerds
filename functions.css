@@ -71,7 +71,7 @@ header > nav > ul > li > a:hover {
 }
 
 .table {
-
+    background-color: #0776A0;
     margin: 0 auto;
     margin-top: 30px;
     width: 1000px;
@@ -161,7 +161,9 @@ textarea{
     font-size: 20px !important;
 }
 th{
-    font-size: 20px;
+    font-size: 30px;
+    color: #ff8500;
+    height: 80px;
 }
 #userbar{
  font-size: 20px !important;
@@ -180,4 +182,44 @@ margin-left: 40px;
 #paging-comments{
     margin: 0 auto;
     text-align: center;
+}
+table   a {
+    text-decoration: none;
+}
+
+
+#send-comment  {
+    display: block;
+    margin-top: 10px !important;
+    margin: 0 auto;
+    width: 200px !important;
+    background: #0776A0;
+    border: 2px solid #000;
+    border-radius: 10px;
+    color: #ff8500;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px;
+}
+#send-comment:hover {
+    background: #024c68;
+}
+
+#back-btnT {
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid ff8500;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 17px;
+    width: 100px;
+    text-align: center;
+}
+#back-btnT:hover {
+    background: #0776A0;
+}
+
+.user-comment {
+    height: 150px;
+    max-height: 150px;
 }
