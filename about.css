@@ -28,4 +28,7 @@
 }
 #send-contact:hover {
     background: #024c68;
+    cursor: pointer;
+    border: 2px solid white;
+    color: #ff8500;
 }
